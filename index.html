@@ -1,0 +1,559 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MG3 Dashboard Studio · Original Comparison</title><style>
+:root{color-scheme:dark;--bg:#0b111b;--panel:#141f2e;--line:#2b3b50;--accent:#60c7ff;--text:#edf5ff;--muted:#9eb0c4}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 Segoe UI,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer;background:#1b3046;color:#eaf5ff;border:1px solid #3b536b;border-radius:8px;padding:9px 12px}button:hover{border-color:#74cfff}button:disabled{opacity:.4;cursor:not-allowed}button.primary{background:linear-gradient(135deg,#17618d,#217aa9);border-color:#398fc0;box-shadow:inset 0 1px #ffffff18}header{box-shadow:0 2px 24px #0004;padding:17px clamp(16px,3vw,38px);display:flex;justify-content:space-between;gap:16px;align-items:center;background:#101925;border-bottom:1px solid var(--line)}h1{font-size:20px;margin:0}header small{color:var(--muted)}.pill{border:1px solid #3e6a83;color:#a9dbff;padding:6px 10px;border-radius:20px;font-size:11px;white-space:nowrap}.layout{max-width:1540px;margin:auto;padding:22px;display:grid;grid-template-columns:minmax(0,1fr) 305px;gap:20px}.workspace,.sidebar{min-width:0}.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:13px;align-items:center}.toolbar .push{margin-left:auto}.stage{background:radial-gradient(ellipse at top,#25394d,#101823 65%,#0a111b);border:1px solid #2c3e52;border-radius:20px;padding:clamp(14px,3.5vw,45px)}.housing{max-width:850px;margin:auto;padding:14px;background:linear-gradient(#101923,#05090e);border:2px solid #344458;border-radius:29px;box-shadow:0 24px 70px #000a}.screen{width:100%;aspect-ratio:1.78;background:radial-gradient(ellipse at 50% 40%,#101f31,#080e17 75%);position:relative;overflow:hidden;border:1px solid #2c3b4b;border-radius:10px;touch-action:none;container-type:inline-size}.screen.grid:after{content:"";position:absolute;inset:0;z-index:9;pointer-events:none;background-image:linear-gradient(90deg,#80b4e92e 1px,transparent 1px),linear-gradient(#80b4e92e 1px,transparent 1px);background-size:calc(100% / 12) calc(100% / 8)}.screen.preview .module{outline:none!important}.module{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;min-width:0;min-height:0;user-select:none;touch-action:none;color:#fff;cursor:grab;text-align:center;padding:3px;outline:1px dashed transparent;outline-offset:-2px}.screen:not(.preview) .module{outline:1px dashed rgba(112,192,247,.72);outline-offset:-2px}.module:hover{outline-color:#a2dfff}.module.selected{outline:2px solid #5cc4fa;z-index:3}.module.dragging{z-index:5;opacity:.85;cursor:grabbing}.module .resize{position:absolute;right:1px;bottom:1px;width:14px;height:14px;border-right:3px solid #6ed2ff;border-bottom:3px solid #6ed2ff;cursor:nwse-resize;z-index:4}.screen.preview .resize{display:none}.module .main{font-size:clamp(11px,4.3cqw,48px);font-weight:700;line-height:1.05}.module.speed .main{font-size:clamp(18px,7.5cqw,84px)}.module .caption{font-size:clamp(6px,1.25cqw,13px);color:#c1d4e6}.module .tiny{font-size:clamp(6px,1.15cqw,12px);color:#83d6f7}.module .green{color:#64dfa2}.module .bar{width:80%;height:7px;border:1px solid #708da7;border-radius:5px;margin-top:5px;overflow:hidden}.module .bar b{display:block;height:100%;background:var(--accent)}.module .lane{height:72%;width:75%;position:relative;display:flex;justify-content:center;align-items:end}.lane:before,.lane:after{content:"";position:absolute;bottom:3%;height:95%;width:2px;background:linear-gradient(transparent,#91b0d1)}.lane:before{left:20%;transform:rotate(14deg)}.lane:after{right:20%;transform:rotate(-14deg)}.lane .car{height:38%;width:25%;background:linear-gradient(90deg,#678ba8,#e1f2ff,#678ba8);border-radius:45% 45% 15% 15%;margin-bottom:10%;box-shadow:0 0 12px #8cbfff66}.module .speedcircle{width:min(75%,140px);aspect-ratio:1;border:5px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center}.module .speedcircle .main{font-size:clamp(12px,4cqw,44px)}.module .value-row{display:flex;gap:8px;align-items:baseline}.module .stats{display:grid;grid-template-columns:1fr 1fr;gap:5px;width:100%}.module .stats div{border:1px solid #4b819a88;border-radius:4px;padding:2px}.module .stats strong{display:block;font-size:clamp(8px,1.7cqw,17px)}.module .stats small{font-size:clamp(5px,.85cqw,9px);color:#8ba6bd}.sidebox{box-shadow:0 6px 25px #0002;background:#121d2b;border:1px solid var(--line);border-radius:13px;padding:15px;margin-bottom:14px}.sidebox h2{font-size:15px;margin:0 0 11px}.sidebox p{font-size:12px;color:var(--muted);margin:0 0 12px}.field{display:flex;flex-direction:column;gap:5px;margin:11px 0}.field label{color:#adc1d5;font-size:12px}.field input,.field select{width:100%;background:#0b1420;border:1px solid #3b526a;color:white;padding:8px;border-radius:7px}.field input[type=color]{height:36px;padding:3px}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1;min-width:0}.buttons{display:grid;grid-template-columns:1fr 1fr;gap:7px}.muted{color:var(--muted)}.note{font-size:12px;color:#a8bad0;line-height:1.6;margin:15px 2px}.status{min-height:20px;color:#a7dfff;font-size:12px}.key{background:#22354b;padding:2px 5px;border-radius:4px}.hidden{display:none!important}input[type=checkbox]{accent-color:#5bc6ff}.check{display:flex;gap:8px;align-items:center;font-size:12px;color:#b9ccde}.check input{width:auto}.summary{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.warn{color:#ffca7d}.footer{font-size:11px;color:#8196aa;margin-top:12px}@media(max-width:970px){.layout{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.sidebox{margin:0}}@media(max-width:600px){.layout{padding:12px}.sidebar{grid-template-columns:1fr}.housing{padding:6px;border-radius:13px}.stage{padding:8px}.toolbar button{font-size:12px;padding:7px}.module .resize{width:10px;height:10px}}
+/* Make the style dropdown legible in its opened/hovered state. */
+#style{color-scheme:dark;background-color:#142438;color:#f3f8ff;border-color:#52708d;cursor:pointer}
+#style:hover,#style:focus{background-color:#315977;color:#ffffff;border-color:#72cfff;outline:2px solid #72cfff55;outline-offset:1px}
+#style option{background-color:#142438;color:#f3f8ff}
+#style option:checked{background-color:#23618b;color:#ffffff}
+
+/* Style library: miniature vector previews, not static screenshots. */
+.style-gallery-wrap{margin:8px 0 14px;border:1px solid #334c62;border-radius:10px;padding:9px;background:#0b1724}
+.style-gallery-wrap summary{cursor:pointer;color:#cce8fb;font-size:12px;font-weight:600}
+.style-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:11px}
+.style-tile{padding:4px;background:#0b1420;border:1px solid #334b61;border-radius:8px;text-align:center;min-width:0;overflow:hidden}
+.style-tile:hover,.style-tile:focus-visible{background:#315977;border-color:#a7e4ff;box-shadow:0 0 0 2px #79ccff55}.style-tile:hover span,.style-tile:focus-visible span{color:#fff}
+.style-tile.active{border:2px solid #65caff;background:#17334a}
+.style-tile svg{width:100%;height:76px;display:block;--accent:#60c7ff;--scale:#d7e8f7;--needle:#ff6655;--digits:#fff}
+.style-tile span{display:block;font-size:10px;color:#c0d3e5;line-height:1.3;white-space:normal}
+.simulation{border:1px solid #30465b;background:linear-gradient(135deg,#172638,#101c2a);border-radius:12px;padding:13px 16px;margin-bottom:13px}.sim-heading{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:13px;margin-bottom:9px}.sim-heading span{font-size:11px}.sim-grid{display:grid;grid-template-columns:1fr 1fr auto;align-items:center;gap:18px}.sim-grid label{display:flex;flex-direction:column;gap:6px;color:#c1d6e7;font-size:12px}.sim-grid label output{color:#70ceff;font-variant-numeric:tabular-nums;font-weight:700}.sim-grid input[type=range]{width:100%;accent-color:#5acaff}.sim-grid .sim-toggle{display:flex;flex-direction:row;align-items:center;white-space:nowrap}.sim-toggle input{accent-color:#61caff}@media(max-width:720px){.sim-grid{grid-template-columns:1fr 1fr}.sim-toggle{grid-column:1/-1}}
+/* SVG speedometer artwork scales within the module, independent of the screen size. */
+.module.speed,.module.rpm{padding:0}.module.speed .speed-art,.module.rpm .speed-art{display:block;width:100%;height:100%;overflow:hidden;pointer-events:none;filter:drop-shadow(0 1px 2px #0008)}
+#style{min-height:40px}
+.module.fuel,.module.battery,.module.energy{padding:1px}
+.module .hybrid-art{width:100%;height:100%;display:block;pointer-events:none;overflow:hidden;filter:drop-shadow(0 1px 2px #0007)}
+.sim-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sim-grid .sim-toggle{align-self:end;padding-bottom:8px}
+@media(max-width:720px){.sim-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){.sim-grid{grid-template-columns:1fr}}
+.energy-stream{stroke-dasharray:7 8;animation:energy-move 1.8s linear infinite}
+@keyframes energy-move{to{stroke-dashoffset:-30}}
+@media(prefers-reduced-motion:reduce){.energy-stream{animation:none}}
+
+.module-label{position:absolute;left:3px;right:3px;z-index:2;pointer-events:none;color:var(--scale,#c1d4e6);font-size:clamp(7px,1.25cqw,13px);font-weight:650;letter-spacing:.055em;text-shadow:0 1px 4px #000b;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.module-label.top{top:3px}.module-label.bottom{bottom:3px}.module .hybrid-art,.module .speed-art{max-height:100%}
+
+/* Hover must NEVER obscure the instrument. Emphasise boundaries only. */
+.screen:not(.preview) .module:hover{outline:2px solid #e4f7ff!important;outline-offset:-2px;box-shadow:inset 0 0 0 1px #a8e7ff55,0 0 0 1px #77ceff;filter:none!important;opacity:1!important;background-image:none!important}
+.screen:not(.preview) .module.selected:hover{outline:2px solid #77d6ff!important}
+.screen.preview .module:hover{box-shadow:none!important;filter:none!important;opacity:1!important}
+.presentation-active header,.presentation-active .sidebar,.presentation-active .summary,.presentation-active .simulation,.presentation-active .note,.presentation-active .footer,.presentation-active .status,.presentation-active .toolbar button:not(#presentationBtn){display:none!important}
+.presentation-active .layout{display:block;max-width:none;padding:0}.presentation-active .stage{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:30px;background:#080d14}.presentation-active .housing{width:min(96vw,1400px);max-width:none}.presentation-active .workspace{width:100%}.presentation-active .toolbar{position:fixed;right:16px;top:16px;z-index:100}.presentation-active #presentationBtn{background:#204c70}
+/* Editor hover: keep module contents at full brightness. Only a crisp cyan boundary changes. */
+.screen:not(.preview) .module:hover{
+  outline:3px solid #a9ecff!important;
+  outline-offset:-3px!important;
+  box-shadow:0 0 0 2px #67cfff,0 0 14px #61caff70!important;
+  filter:brightness(1.22)!important;
+  opacity:1!important;
+  background-color:rgba(87,187,244,.12)!important;
+  z-index:7;
+}
+.screen:not(.preview) .module.selected:hover{outline-color:#ffffff!important}
+.screen:not(.preview) .module:hover svg,
+.screen:not(.preview) .module:hover .hybrid-art,
+.screen:not(.preview) .module:hover .speed-art{filter:none!important;opacity:1!important}
+/* Accessible, custom module picker: no OS-native dark selection hover. */
+.catalog-list{max-height:265px;overflow-y:auto;border:1px solid #46637e;background:#0c1725;border-radius:9px;padding:5px;display:flex;flex-direction:column;gap:3px;scrollbar-color:#547a99 #0c1725}
+.catalog-item{display:block;width:100%;padding:9px 11px;text-align:left;border:1px solid transparent;border-radius:6px;background:transparent;color:#e6f2ff;box-shadow:none;font-size:13px}
+.catalog-item:hover,.catalog-item:focus-visible{background:#447b9f!important;color:#fff!important;border-color:#a7e8ff!important;outline:2px solid #91dfff;outline-offset:-2px}
+.catalog-item.active{background:#1b4e71;color:#fff;border-color:#65caff;font-weight:700}
+.catalog-item.active:hover{background:#4887ad!important}
+.catalog-empty{padding:12px;color:#b6c7d8}.catalog-choice{font-size:11px;color:#a6dfff;margin:5px 2px 9px}
+#catalogSearch{background:#14263a;color:#fff;border:1px solid #597c9a;border-radius:7px;padding:10px;width:100%}
+#catalogSearch:focus{outline:2px solid #7dd4ff}
+
+body.original-view .screen{background:#070c12}
+body.original-view .screen.grid:after{display:none}
+body.original-view #gridBtn,body.original-view #previewBtn,body.original-view #resetBtn,body.original-view #autoArrangeBtn,body.original-view #undoBtn,body.original-view #redoBtn,body.original-view #saveBtn,body.original-view #loadBtn{opacity:.45;pointer-events:none}
+body.original-view .sidebar{opacity:.65;pointer-events:none}
+.original-art{width:100%;height:100%;display:block;pointer-events:none}
+.original-art text{font-family:Segoe UI,Arial,sans-serif}
+.original-art .cyan{fill:#37c9eb}.original-art .muted{fill:#9eafc3}.original-art .white{fill:#f4f6ff}
+
+.page-slot{position:absolute;pointer-events:none;z-index:0;border:1px dashed rgba(64,196,230,.48);background:rgba(32,110,155,.035)}
+.page-slot-label{position:absolute;top:2px;left:5px;color:#72a9c2;font-size:clamp(6px,.85cqw,9px);letter-spacing:.4px;opacity:.75}
+.page-controls{position:absolute;right:-43px;top:17%;z-index:7;display:flex;flex-direction:column;align-items:center;gap:4px;background:#07131ee8;border:1px solid #3d7191;border-radius:9px;padding:4px;box-shadow:0 3px 14px #0008}
+.page-controls button{font-size:12px;font-weight:bold;padding:5px 8px;line-height:1;color:#d6f2ff;background:#183a53;border:1px solid #5685a3}
+.page-controls button:hover{background:#317ba8;color:white}.page-controls span{font-size:10px;color:#c7e9ff}
+.screen.preview .page-slot{border-color:transparent;background:transparent}.screen.preview .page-slot-label{display:none}
+/* Place the panel switch beside the physical display, never over modules. */
+.housing{position:relative}
+.stage{padding-right:clamp(54px,6vw,80px)}
+.page-controls{width:34px;padding:4px 3px;gap:5px;right:-43px;top:17%;transform:translateY(-3%);border-radius:9px}
+.page-controls button{width:26px;min-height:30px;padding:3px 0;font-size:13px}
+.page-controls span{font-size:10px}
+@media(max-width:600px){.stage{padding-right:48px}.page-controls{right:-39px;width:32px}.page-controls button{width:24px;min-height:28px}}
+.panel-add{margin:10px 0 8px;cursor:pointer}
+#paintEditor{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:10px}.paint-row{display:flex;align-items:center;justify-content:space-between;gap:6px;border:1px solid #34495e;border-radius:6px;padding:5px;font-size:10px;color:#c2d5e6;min-width:0}.paint-row span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.paint-row input{width:32px;min-width:32px;height:26px;border:0;background:none;padding:0;cursor:pointer}#paintDetails{border:1px solid #36506b;border-radius:8px;padding:9px;margin:9px 0}#paintDetails summary{cursor:pointer;font-weight:600;color:#c9e5ff}#gearExtras .row{flex-wrap:wrap}#gearExtras .row>.field{min-width:75px;flex:1}#simGear{width:100%;margin-top:5px} </style></head><body class="original-view"><header><div><h1>MG3 Dashboard Studio</h1><small>Interactive cluster editor · Concept only</small></div><span class="pill">PROTOTYPE 1.5.1 · LANE STYLES & SIMPLE ADD</span></header><main class="layout"><section class="workspace"><div class="summary"><div><strong>Driver display</strong><div class="muted" style="font-size:12px">7-inch diagonal · 1.78:1 working ratio (estimated from reference photo)</div></div><span class="muted" style="font-size:12px">12 × 8 grid</span></div><div class="toolbar"><button id="originalBtn" class="primary" aria-pressed="true">MG3 Original</button><button id="customBtn" aria-pressed="false">MG3 Custom</button><button id="gridBtn">Hide grid</button><button id="previewBtn">Preview</button><button id="resetBtn">Reset layout</button><button id="autoArrangeBtn">Auto Arrange</button><button id="undoBtn" title="Ctrl+Z">↶ Undo</button><button id="redoBtn" title="Ctrl+Y">↷ Redo</button><button id="presentationBtn">Presentation</button><button id="saveBtn" class="push primary">Save layout</button><button id="loadBtn">Load saved</button></div><div class="simulation"><div class="sim-heading"><strong>Live simulation</strong><span class="muted">Demo data only · not connected to vehicle</span></div><div class="sim-grid"><label>Selected gear <select id="simGear"><option>P</option><option>R</option><option>N</option><option selected>D</option></select></label><label>Speed <output id="speedVal">80 km/h</output><input id="simSpeed" type="range" min="0" max="220" value="80" step="1"></label><label>Engine RPM <output id="rpmVal">2400 RPM</output><input id="simRPM" type="range" min="0" max="6500" value="2400" step="100"></label><label>Fuel level <output id="fuelVal">75%</output><input id="simFuel" type="range" min="0" max="100" value="75" step="1"></label><label>Hybrid battery <output id="batteryVal">68%</output><input id="simBattery" type="range" min="0" max="100" value="68" step="1"></label><label>Power / regeneration <output id="powerVal">12 kW</output><input id="simPower" type="range" min="-30" max="80" value="12" step="1"></label><label class="sim-toggle"><input id="engineOn" type="checkbox" checked> Combustion engine running</label><label>Outside temperature <output id="outsideVal">12°C</output><input id="simOutside" type="range" min="-15" max="40" value="12"></label><label>Detected speed limit <output id="limitVal">50 km/h</output><input id="simLimit" type="range" min="20" max="130" step="10" value="50"></label></div></div><div class="stage"><div class="housing"><div class="screen grid" id="screen" aria-label="MG3 dashboard comparison"></div></div></div><p class="note">MG3 Custom now starts with the same factory-inspired layout as MG3 Original; select any instrument to change its design, size, color or position. Select a module to browse its styles, including lane assistance and hybrid energy visualizations. The hybrid indicators use adjustable simulated values. Use the advanced individual SVG colors editor to recolor every paint group in a design. New modules are placed outside the switchable panel. Drag a module into the 4 × 5 panel to assign it to the active page, or drag it out to make it static. Modules only move if their entire footprint fits. Drag the lower-right handle to resize. Every module snaps to the grid, respects a minimum size, and cannot overlap another module. Mandatory modules cannot be removed, but they can be moved. In Preview mode, all editing outlines disappear.</p><div class="status" id="status" role="status"></div><div class="footer">Prototype disclaimer: dimensions and safety requirements have not been verified by MG. This is a visual concept with simulated values, not an approved vehicle instrument cluster. Warning symbols and legally required information would need engineering and regulatory validation by MG.</div></section><aside class="sidebar"><div class="sidebox"><h2>Add module</h2><p>Select a module and add it to the current panel page or the static display. The editor checks available space.</p><div class="field"><label for="catalogSearch">Available modules</label><input id="catalogSearch" type="search" placeholder="Search modules…" autocomplete="off" aria-label="Search available modules"><div id="catalogList" class="catalog-list" role="listbox" aria-label="Available modules"></div><div id="catalogChoice" class="catalog-choice" aria-live="polite"></div></div><button id="addBtn" class="primary" style="width:100%">+ Add module</button><p style="margin-top:10px">Includes lane assistance, temperature, consumption and regeneration. Choose from multiple instrument styles and customize every graphic color in the selected design. Select a module to browse its gallery.</p></div><div class="sidebox" id="editor"><h2>Selected module</h2><p id="selectedInfo">Click a module on the display to edit it.</p><div id="editFields" class="hidden"><div class="field"><label for="style">Display style</label><select id="style"></select></div><details id="styleGalleryWrap" class="style-gallery-wrap hidden"><summary>Browse module designs</summary><div id="styleGallery" class="style-gallery"></div></details><div id="speedColors" class="hidden"><div class="row"><div class="field"><label for="scaleColor">Scale / tick color</label><input id="scaleColor" type="color" value="#d7e8f7"></div><div class="field"><label for="needleColor">Needle / highlight color</label><input id="needleColor" type="color" value="#ff6655"></div></div><div class="field"><label for="digitColor">Digit color</label><input id="digitColor" type="color" value="#ffffff"></div></div><div id="signExtras" class="field hidden"><div class="row"><div class="field"><label for="signFill">Sign fill</label><input type="color" id="signFill" value="#ffffff"></div><div class="field"><label for="signBorder">Sign frame</label><input type="color" id="signBorder" value="#e62d3b"></div><div class="field"><label for="signDigits">Sign digits</label><input type="color" id="signDigits" value="#141414"></div></div></div><div id="moduleExtras" class="field hidden"><div id="gearExtras" class="hidden"><label for="gearFont">Gear font</label><select id="gearFont"><option>Standard</option><option>Sport</option><option>Oldtimer</option><option>Modern</option><option>Futuristic</option></select><label class="check" style="margin:10px 0"><input type="checkbox" id="gearOutline"> Outline letters (instead of filled)</label><div class="row"><div class="field"><label for="gearP">P color</label><input type="color" id="gearP" value="#ffffff"></div><div class="field"><label for="gearR">R color</label><input type="color" id="gearR" value="#ffffff"></div><div class="field"><label for="gearN">N color</label><input type="color" id="gearN" value="#ffffff"></div><div class="field"><label for="gearD">D color</label><input type="color" id="gearD" value="#ffffff"></div></div></div><div id="laneExtras" class="hidden"><label for="laneSymbol">Vehicle symbol</label><select id="laneSymbol"><option>Arrow</option><option>Abstract Car</option><option>Graphic Car</option><option>Steering Wheel</option></select></div></div><label class="check" style="margin:10px 0"><input id="showLabel" type="checkbox" checked> Show module label</label><div class="field"><label for="labelPosition">Label position</label><select id="labelPosition"><option value="top">Top</option><option value="bottom">Bottom</option></select></div><div class="row"><div class="field"><label for="fg">Accent color</label><input id="fg" type="color"></div><div class="field"><label for="bg">Background color</label><input id="bg" type="color"></div></div><div class="row"><div class="field"><label for="fillColor">Graphic fill</label><input id="fillColor" type="color"></div><div class="field"><label for="lineColor">Graphic lines</label><input id="lineColor" type="color"></div></div><div class="row"><div class="field"><label for="chargeColor">Charging color</label><input id="chargeColor" type="color"></div><div class="field"><label for="dischargeColor">Discharging / alert color</label><input id="dischargeColor" type="color"></div></div><details id="paintDetails"><summary>Advanced · individual SVG colors</summary><p style="font-size:12px;color:#9cb3ca">Change any individual color used in the selected design, including numbers, outlines, fills and symbols.</p><div id="paintEditor"></div></details><label class="check"><input id="transparent" type="checkbox"> Transparent background</label><div class="field"><label for="opacity">Background opacity <span id="opacityLabel"></span></label><input id="opacity" type="range" min="0" max="100" step="5"></div><div class="row"><div class="field"><label for="border">Border color</label><input id="border" type="color"></div><div class="field"><label for="borderWidth">Border width</label><select id="borderWidth"><option value="0">None</option><option value="1">1 px</option><option value="2">2 px</option><option value="3">3 px</option><option value="4">4 px</option></select></div></div><div class="buttons"><button id="copyStyleBtn">Copy style</button><button id="pasteStyleBtn">Paste style</button></div><div class="buttons"><button id="shrinkBtn">− Smaller</button><button id="growBtn">+ Larger</button><button id="deleteBtn">Remove module</button><button id="deselectBtn">Deselect</button></div><p id="mandatoryNote" class="warn" style="margin-top:10px"></p></div></div><div class="sidebox"><h2>Keyboard and layout</h2><p><span class="key">↑ ↓ ← →</span> Move selected module by one cell. <span class="key">Esc</span> Deselect. Layouts are saved locally in this browser.</p><div class="buttons"><button id="exportBtn">Export JSON</button><button id="importBtn">Import JSON</button></div><input id="fileInput" class="hidden" type="file" accept="application/json,.json"></div></aside></main><script>
+'use strict';
+const COLS=12,ROWS=8,screen=document.getElementById('screen'),$=id=>document.getElementById(id);
+const types={speed:{name:'Speedometer',min:[3,2],size:[4,4],mandatory:true,styles:['Digital · Minimal','Digital · LCD','Digital · Racing','Digital · HUD','Digital · Premium','Analog · Classic','Analog · Motorsport','Analog · Retro','Analog · Arc','Analog · Hybrid','Digital · KITT LED']},gear:{name:'Gear selection',min:[1,1],size:[2,1],mandatory:true,styles:['Letter','Classic Shifter','Compass Gear']},fuel:{name:'Fuel level',min:[2,1],size:[2,2],mandatory:true,styles:['Bar','Text','Classic Needle','Vertical LED','Radial Ring','Segmented']},warnings:{name:'Warning indicators',min:[1,1],size:[2,1],mandatory:true,styles:['Icons','Text','Status Lights','Warning Strip']},battery:{name:'Hybrid battery',min:[2,1],size:[2,2],mandatory:false,styles:['Percentage','Bar','Battery Cells','Circular Charge','Vertical Gauge','Hybrid Pulse','Vehicle Battery']},energy:{name:'Energy flow',min:[3,2],size:[4,3],mandatory:false,styles:['Energy Balance','Minimal Flow','Vehicle Energy','Energy Network','Power Circuit']},mode:{name:'Drive mode',min:[2,1],size:[2,1],mandatory:false,styles:['Text','Compact','Drive Badge','Mode Strip']},range:{name:'Range',min:[2,1],size:[2,1],mandatory:false,styles:['Digital','Compact','Distance Arc','Range Bar']},clock:{name:'Clock',min:[2,1],size:[2,1],mandatory:false,styles:['Digital','Analog']},rpm:{name:'Engine RPM',min:[2,2],size:[3,2],mandatory:false,styles:['Digital · Minimal','Digital · LED Bar','Digital · Racing','Digital · Vertical','Digital · Futuristic','Analog · Classic','Analog · Motorsport','Analog · Retro','Analog · Arc','Analog · Hybrid']},trip:{name:'Trip statistics',min:[3,2],size:[3,3],mandatory:false,styles:['Grid','Compact','Trip Cards','Journey Timeline']},lane:{name:'Lane visualization',min:[2,2],size:[3,4],mandatory:false,styles:['Arrow','Abstract Car','Graphic Car','Steering Wheel']},power:{name:'Power output',min:[2,1],size:[2,1],mandatory:false,styles:['Digital','Bar','Power Dial','Power Meter']},odometer:{name:'Odometer',min:[2,1],size:[2,1],mandatory:false,styles:['Digital','Odometer Strip','Mechanical Counter','Mileage Card']},outside:{name:'Outside temperature',min:[2,1],size:[2,1],mandatory:false,styles:['Digital','Frost Alert','Thermometer']},engineTemp:{name:'Engine temperature',min:[2,1],size:[2,2],mandatory:false,styles:['Modern Bar','Classic Bar','Vintage Round','Vintage Half Dial','Digital','Digital Scale']},regen:{name:'Regeneration',min:[2,1],size:[2,2],mandatory:false,styles:['Digital Minimal','Digital Symbol','Horizontal Center Bar','Vertical Center Bar','Analog Round','Vintage Analog']},speedLimit:{name:'Speed limit sign',min:[1,1],size:[2,2],mandatory:false,styles:['Round Sign','Square Sign']},consumption:{name:'Fuel consumption',min:[2,1],size:[3,2],mandatory:false,styles:['Average','Live','Efficiency Bar']}};
+// Factory-inspired styling is a selectable design, not a fixed background image.
+const factoryTypes=['speed','gear','fuel','warnings','battery','mode','range','clock','trip','lane','power','odometer','speedLimit'];
+for(const key of factoryTypes)if(!['gear','clock','lane','speedLimit'].includes(key))types[key].styles.unshift('MG3 Factory');
+let modules=[],selected=null,preview=false,showGrid=true,drag=null,nextId=1;
+const SLOT={x:8,y:1,w:4,h:5};let activePage=0;
+const inSlot=m=>m.x<SLOT.x+SLOT.w&&m.x+m.w>SLOT.x&&m.y<SLOT.y+SLOT.h&&m.y+m.h>SLOT.y;
+const isPage=m=>Number.isInteger(m.page)&&m.page>=0&&m.page<4;
+const pageMatches=(a,b)=>isPage(a)&&isPage(b)?a.page===b.page:!isPage(a)&&!isPage(b);
+const overlap=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
+function pageChange(d){activePage=(activePage+d+4)%4;selected=null;render();edit();notice('Switchable panel: view '+(activePage+1)+' of 4. Add modules to this page or choose another view.')}
+
+let history=[],future=[],styleClipboard=null,presentation=false;
+function snapshot(){return JSON.stringify({modules,nextId,selected,activePage})}
+function checkpoint(){const now=snapshot();if(history.at(-1)!==now){history.push(now);if(history.length>100)history.shift()}future=[];historyButtons()}
+function applySnapshot(json){const v=JSON.parse(json);modules=v.modules;nextId=v.nextId;selected=v.selected;activePage=v.activePage??0;render();edit();historyButtons()}
+function historyButtons(){if(!$('undoBtn'))return;$('undoBtn').disabled=!history.length;$('redoBtn').disabled=!future.length}
+function undo(){if(!history.length)return;future.push(snapshot());applySnapshot(history.pop());notice('Undone.')}
+function redo(){if(!future.length)return;history.push(snapshot());applySnapshot(future.pop());notice('Redone.')}
+const styleKeys=['style','fg','bg','border','borderWidth','transparent','opacity','scaleColor','needleColor','digitColor','fillColor','lineColor','chargeColor','dischargeColor','signFill','signBorder','signDigits','gearFont','gearOutline','gearColors','laneSymbol','paintOverrides','showLabel','labelPosition'];
+function autoArrange(){
+ const ordered=[...modules].filter(m=>!isPage(m)).sort((a,b)=>b.w*b.h-a.w*a.h||a.id-b.id);
+ const planned=[];
+ function fits(m,x,y){const candidate={...m,x,y};return !inSlot(candidate)&&!planned.some(n=>overlap(candidate,n))}
+ for(const m of ordered){let target=null;for(let y=0;y<=ROWS-m.h&&!target;y++)for(let x=0;x<=COLS-m.w;x++)if(fits(m,x,y)){target={...m,x,y};break}
+ if(!target){notice('Auto Arrange: insufficient room outside the four-page panel.');return}planned.push(target)}
+ const changed=planned.some((n,i)=>n.x!==ordered[i].x||n.y!==ordered[i].y);
+ if(!changed){notice('Auto Arrange: static modules are already packed. The four-page panel stays in place.');return}
+ checkpoint();planned.forEach(n=>Object.assign(modules.find(m=>m.id===n.id),{x:n.x,y:n.y}));render();edit();notice('Static modules arranged; switchable panel preserved.');
+}
+
+let simGear='D',simLimit=50,simSpeed=80,simRPM=2400,engineOn=true,simFuel=75,simBattery=68,simPower=12,simOutside=12,simNav=350,simGap=2,simCruise=80;
+function make(type,x,y,w,h){const t=types[type];return {id:nextId++,type,x,y,w:w||t.size[0],h:h||t.size[1],style:t.styles[0],scaleColor:"#d7e8f7",needleColor:"#ff6655",digitColor:"#ffffff",fillColor:'#20374b',lineColor:'#89a9c4',chargeColor:'#27e39a',dischargeColor:'#f36a66',gearFont:'Standard',gearOutline:false,gearColors:{},laneSymbol:'Graphic Car',paintOverrides:{},fg:'#64c8ff',bg:'#12243a',transparent:true,opacity:80,border:'#5cc4fa',borderWidth:0,showLabel:true,labelPosition:'top'}}
+function init(){
+ nextId=1;
+ // Match the spatial hierarchy of the supplied MG3 cluster photo on the 12 × 8 grid.
+ const placements=[
+  ['lane',0,2,4,4],['speed',4,2,3,3],['trip',8,1,4,5],
+  ['clock',5,0,2,1],['speedLimit',5,1,2,1],
+  ['range',4,5,3,1],['fuel',4,6,3,1],
+  ['odometer',8,6,4,1],['gear',2,7,1,1],['warnings',3,7,1,1],
+  ['mode',5,7,2,1],['power',8,7,2,1],['battery',10,7,2,1]
+ ];
+ modules=placements.map(([type,x,y,w,h])=>{
+  const m=make(type,x,y,w,h);if(type==='trip')m.page=0;m.style=types[type].styles.includes('MG3 Factory')?'MG3 Factory':types[type].styles[0];m.showLabel=false;
+  m.fg='#40c5e7';m.digitColor='#f5f8ff';m.scaleColor='#b7cadb';
+  return m;
+ });
+ activePage=0;const energy=make('energy',8,1,4,5);energy.page=1;energy.style='Vehicle Energy';energy.showLabel=false;modules.push(energy);
+ activePage=0;selected=null;render();edit();
+}
+function valid(m,ignore){
+ if(m.x<0||m.y<0||m.x+m.w>COLS||m.y+m.h>ROWS||m.w<types[m.type].min[0]||m.h<types[m.type].min[1])return false;
+ if(isPage(m)){if(m.x<SLOT.x||m.y<SLOT.y||m.x+m.w>SLOT.x+SLOT.w||m.y+m.h>SLOT.y+SLOT.h)return false}
+ else if(inSlot(m))return false;
+ return !modules.some(n=>n.id!==ignore&&pageMatches(m,n)&&overlap(m,n));
+}
+// Speedometer artwork is vector-based: it scales with the grid module and stays transparent.
+const speedStyles=['Digital · Minimal','Digital · LCD','Digital · Racing','Digital · HUD','Digital · Premium','Analog · Classic','Analog · Motorsport','Analog · Retro','Analog · Arc','Analog · Hybrid','Digital · KITT LED'];
+const rpmStyles=types.rpm.styles;
+const polar=(cx,cy,r,deg)=>{const a=(deg-90)*Math.PI/180;return [cx+r*Math.cos(a),cy+r*Math.sin(a)]};
+const arc=(cx,cy,r,a,b)=>{const p=polar(cx,cy,r,a),q=polar(cx,cy,r,b);return `M ${p[0].toFixed(2)} ${p[1].toFixed(2)} A ${r} ${r} 0 ${Math.abs(b-a)>180?1:0} 1 ${q[0].toFixed(2)} ${q[1].toFixed(2)}`};
+function ticks(cx,cy,r,a,b,max=220,step=20,retro=false){let out='';for(let n=0;n<=max;n+=step){const deg=a+(b-a)*n/max;const p=polar(cx,cy,r,deg),q=polar(cx,cy,r-(n%40===0?15:9),deg),label=polar(cx,cy,r-31,deg);out+=`<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" stroke="${retro?'#e5cda0':'#d7e8f7'}" stroke-width="${n%40===0?2.6:1.3}"/>`;if(n%40===0)out+=`<text x="${label[0]}" y="${label[1]+4}" text-anchor="middle" fill="${retro?'#e5cda0':'#e8f3ff'}" font-size="11" font-weight="600">${n}</text>`}return out}
+function speedSVG(style){
+const i=Math.max(0,speedStyles.indexOf(style));
+const A='var(--accent)', S='var(--scale)', N='var(--needle)', D='var(--digits)';
+const T=(x,y,v,size=14,color=S,weight=500,extra='')=>`<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="${weight}" fill="${color}" ${extra}>${v==='80'&&size>=30?simSpeed:v}</text>`;
+const P=(cx,cy,r,angle)=>polar(cx,cy,r,angle).map(v=>v.toFixed(2));
+const L=(cx,cy,r1,r2,angle,color=S,w=2)=>{const a=P(cx,cy,r1,angle),b=P(cx,cy,r2,angle);return `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}" stroke="${color}" stroke-width="${w}" stroke-linecap="round"/>`};
+const ring=(cx,cy,r,a,b,col=A,w=3)=>`<path d="${arc(cx,cy,r,a,b)}" fill="none" stroke="${col}" stroke-width="${w}" stroke-linecap="round"/>`;
+const dialTicks=(cx,cy,r,a,b,max,step,numberStep=40)=>{let z='';for(let v=0;v<=max;v+=step){let ang=a+(b-a)*v/max;z+=L(cx,cy,r,r-(v%numberStep===0?11:5),ang,S,v%numberStep===0?2.5:1);if(v%numberStep===0){const q=P(cx,cy,r-23,ang);z+=T(q[0],+q[1]+4,v,10,S,600)}}return z};
+const hand=(cx,cy,r,a,b,max,value)=>{const q=P(cx,cy,r,a+(b-a)*value/max);return `<line x1="${cx}" y1="${cy}" x2="${q[0]}" y2="${q[1]}" stroke="${N}" stroke-width="3.5" stroke-linecap="round"/><circle cx="${cx}" cy="${cy}" r="6" fill="${S}" stroke="${N}" stroke-width="2"/>`};
+let x='';
+if(i===10){ // KITT-inspired segmented LED sweep: original vector art
+const segments=Array.from({length:31},(_,k)=>{const ang=-85+k*170/30;const q=P(160,177,138,ang);return `<rect x="${q[0]-4}" y="${q[1]-10}" width="8" height="20" rx="1.5" transform="rotate(${ang} ${q[0]} ${q[1]})" fill="${k<Math.round(simSpeed/220*31)?(k>24?N:A):'#29323c'}" opacity="${k<Math.round(simSpeed/220*31)?1:.38}"/>`}).join('');
+x=`<path d="${arc(160,177,146,-86,86)}" fill="none" stroke="${A}" stroke-opacity=".25" stroke-width="2"/>${segments}<rect x="71" y="78" width="178" height="82" rx="8" fill="#090d14" fill-opacity=".62" stroke="${A}" stroke-opacity=".45"/>${T(160,142,simSpeed,86,D,800,'font-family="monospace" letter-spacing="0"')}${T(160,165,'km/h',13,A,700,'letter-spacing="5"')}`;
+}else if(i===0){ // Pure minimalist number: no dial, quiet hairline
+x=`<path d="M57 57 H263" stroke="${A}" stroke-width="2" opacity=".65"/>${T(160,145,'80',118,D,750,'letter-spacing="-9"')}${T(160,176,'km/h',17,S,500,'letter-spacing="7"')}<path d="M128 193 H192" stroke="${A}" stroke-width="3"/>`;
+}else if(i===1){ // Seven-segment-inspired display, physically distinct from minimalist
+const digits={0:[0,1,2,3,4,5],1:[1,2],2:[0,1,6,4,3],3:[0,1,6,2,3],4:[5,6,1,2],5:[0,5,6,2,3],6:[0,5,6,4,2,3],7:[0,1,2],8:[0,1,2,3,4,5,6],9:[0,1,2,3,5,6]};
+const values=String(simSpeed).padStart(2,'0').split(''),width=values.length===3?73:95,base=(320-values.length*width)/2;
+const digit=(left,n)=>{const scale=width/95,parts=[[left+10*scale,31,72*scale,8],[left+78*scale,39,8*scale,57],[left+78*scale,106,8*scale,57],[left+10*scale,163,72*scale,8],[left+3*scale,106,8*scale,57],[left+3*scale,39,8*scale,57],[left+10*scale,97,72*scale,8]];return digits[n].map(k=>{const p=parts[k];return `<rect x="${p[0]}" y="${p[1]}" width="${p[2]}" height="${p[3]}" rx="2" fill="${D}"/>`}).join('')};
+x=`<rect x="30" y="18" width="260" height="185" rx="15" fill="${A}" fill-opacity=".07" stroke="${A}" stroke-width="2"/><rect x="39" y="27" width="242" height="167" rx="7" fill="none" stroke="${S}" stroke-opacity=".35"/>${values.map((n,k)=>digit(base+k*width,+n)).join('')}${T(160,191,'km/h',11,S,600,'letter-spacing="4"')}`;
+}else if(i===2){ // Racing: segmented RPM-like upper bar + aggressive diagonal speed
+x=`<path d="M16 164 L74 40 H302" fill="none" stroke="${A}" stroke-width="4"/>${Array.from({length:20},(_,k)=>`<path d="M${18+k*15} 24 l9 -10 h9 l-9 10 z" fill="${k<8?A:k>16?N:'#344b5f'}" opacity="${k<8?1:.7}"/>`).join('')}<path d="M34 183 H297" stroke="${S}" stroke-width="1.5" opacity=".7"/>${T(165,148,'80',118,D,900,'font-style="italic" letter-spacing="-10"')}${T(255,178,'KM/H',15,A,800)}<path d="M32 193 H295" stroke="${A}" stroke-width="5"/>`;
+}else if(i===3){ // HUD: corner brackets, horizon, outlined digits, scan lines
+x=`<path d="M20 63 V30 H76 M244 30 H300 V63 M20 153 V190 H76 M244 190 H300 V153" fill="none" stroke="${A}" stroke-width="3"/>${Array.from({length:6},(_,k)=>`<path d="M${65+k*38} 43 v7" stroke="${S}" stroke-width="2"/>`).join('')}<path d="M46 110 H274 M160 24 V48 M160 173 V198" stroke="${A}" stroke-opacity=".4"/>${T(160,143,'80',112,'none',600,`stroke="${D}" stroke-width="2" paint-order="stroke" letter-spacing="-4"`)}${T(160,172,'km/h',16,A,500,'letter-spacing="7"')}`;
+}else if(i===4){ // premium: thin tall typography, ornamental concentric side arcs
+x=`${ring(160,115,117,-110,-58,A,2)}${ring(160,115,117,58,110,A,2)}${ring(160,115,109,-106,-69,S,1)}${ring(160,115,109,69,106,S,1)}${T(160,51,'SPEED',11,S,400,'letter-spacing="9"')}${T(160,146,'80',111,D,300,'font-family="Georgia,serif"')}${T(160,178,'km/h',15,A,400,'font-family="Georgia,serif" letter-spacing="4"')}<path d="M100 191 H220" stroke="${S}" stroke-width="1"/>`;
+}else if(i===5){ // true 240° classic round dial
+x=`<circle cx="160" cy="111" r="101" fill="${A}" fill-opacity=".055" stroke="${S}" stroke-width="7"/><circle cx="160" cy="111" r="94" fill="none" stroke="${A}" stroke-width="2"/>${dialTicks(160,111,89,-125,125,240,10,40)}${hand(160,111,75,-125,125,240,80)}${T(160,168,'km/h',13,S,600)}`;
+}else if(i===6){ // motorsport: split thick segmented arc, redline, diagonal type
+x=`${ring(160,110,100,-132,132,'#263849',19)}${Array.from({length:19},(_,k)=>ring(160,110,100,-132+k*14,-132+k*14+10,k<7?A:k>15?N:S,14)).join('')}${dialTicks(160,110,80,-132,132,240,20,40)}${hand(160,110,67,-132,132,240,80)}${T(160,159,'80',35,D,900,'font-style="italic"')}${T(160,178,'KM/H',11,A,800,'letter-spacing="3"')}`;
+}else if(i===7){ // vintage, art deco, elliptical concentric rings and classic cream typography
+x=`<circle cx="160" cy="110" r="101" fill="#776442" fill-opacity=".16" stroke="${S}" stroke-width="7"/><circle cx="160" cy="110" r="92" fill="none" stroke="${S}" stroke-width="1"/>${dialTicks(160,110,84,-135,135,160,10,20)}${hand(160,110,69,-135,135,160,80)}${T(160,163,'km/h',12,S,400,'font-family="Georgia,serif" letter-spacing="3"')}<path d="M130 179 H190" stroke="${A}" stroke-width="1"/>`;
+}else if(i===8){ // horizontal half-moon: no circular housing, sweeping upper arc
+x=`${ring(160,172,127,-84,84,'#2b4052',17)}${ring(160,172,127,-84,-84+168*80/220,A,13)}${Array.from({length:12},(_,k)=>L(160,172,114,104,-84+k*168/11,S,k%2?1.5:2.5)).join('')}${hand(160,172,99,-84,84,220,80)}${T(160,126,'80',62,D,700)}${T(160,147,'km/h',14,A,600,'letter-spacing="3"')}`;
+}else{ // dual-readout analog/digital with tick-ring and inset window
+x=`${ring(160,109,102,-135,135,'#334b60',15)}${ring(160,109,102,-135,-135+270*80/240,A,12)}${dialTicks(160,109,88,-135,135,240,20,40)}<rect x="103" y="85" width="114" height="73" rx="7" fill="#091420" fill-opacity=".85" stroke="${A}" stroke-width="1.5"/>${T(160,137,'80',51,D,800)}${T(160,151,'km/h',11,A,600)}`;
+}
+
+return `<svg viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet" class="speed-art" role="img" aria-label="${style}: speed ${simSpeed} kilometers per hour">${x}</svg>`;
+}
+
+function rpmSVG(style){
+const i=Math.max(0,rpmStyles.indexOf(style)), A='var(--accent)',S='var(--scale)',N='var(--needle)',D='var(--digits)';
+const v=engineOn?simRPM:0,ratio=Math.min(1,v/6500);
+const text=(x,y,value,size=20,col=D,weight=700)=>`<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" fill="${col}" font-weight="${weight}">${value}</text>`;
+const line=(x1,y1,x2,y2,c=S,w=2)=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c}" stroke-width="${w}" stroke-linecap="round"/>`;
+const bars=(n,orientation='h')=>Array.from({length:n},(_,k)=>{const active=k/n<=ratio,red=k/n>.82;const c=active?(red?N:A):'#344254';return orientation==='h'?`<rect x="${24+k*(270/n)}" y="${132-(k%4===0?48:31)}" width="${270/n-4}" height="${k%4===0?48:31}" rx="2" fill="${c}" opacity="${active?1:.42}"/>`:`<rect x="${55+k*27}" y="${170-(active?118*ratio:12)}" width="16" height="${active?118*ratio:12}" rx="3" fill="${c}"/>`}).join('');
+const circle=(a=-130,b=130,rad=88,segments=false)=>{let z=`<path d="${arc(160,111,rad,a,b)}" fill="none" stroke="#2a3a4c" stroke-width="${segments?17:7}"/>`;
+for(let k=0;k<=32;k++){const ang=a+(b-a)*k/32,q=polar(160,111,rad,ang),r=polar(160,111,rad-(k%4===0?14:7),ang);z+=line(q[0],q[1],r[0],r[1],k/32>.82?N:S,k%4===0?2.8:1.2)}
+if(segments)for(let k=0;k<22;k++)z+=`<path d="${arc(160,111,rad,a+(b-a)*k/22+1,a+(b-a)*(k+1)/22-1)}" stroke="${k/22<ratio?(k>18?N:A):'#304457'}" stroke-width="12" fill="none"/>`;
+const q=polar(160,111,rad-23,a+(b-a)*ratio);z+=line(160,111,q[0],q[1],N,4)+`<circle cx="160" cy="111" r="7" fill="${S}"/>`;return z};
+let art='';
+switch(i){
+case 0:art=`${text(160,133,v.toLocaleString('en-US'),74)}${text(160,163,'RPM',15,A)}${line(75,183,245,183,A,3)}`;break;
+case 1:art=`${bars(22)}${text(160,77,(v/1000).toFixed(1),60)}${text(160,172,'×1000 RPM',15,S)}`;break;
+case 2:art=`<path d="M25 60 L70 20 H300" fill="none" stroke="${A}" stroke-width="4"/>${bars(20)}${text(160,111,v,65,D)}${text(160,188,'RACING RPM',14,A)}`;break;
+case 3:art=`${bars(9,'v')}${text(160,47,v,46,D)}${text(160,204,'ENGINE SPEED',12,S)}`;break;
+case 4:art=`<path d="M23 45 H297 L277 165 H43 Z" stroke="${A}" fill="none" stroke-width="2"/>${Array.from({length:24},(_,k)=>`<path d="M${37+k*10.3} 171 l7 -16" stroke="${k/24<ratio?A:'#304354'}" stroke-width="5"/>`).join('')}${text(160,127,(v/1000).toFixed(2),77,D)}${text(160,149,'×1000 RPM',12,A)}`;break;
+case 5:art=`<circle cx="160" cy="111" r="97" stroke="${S}" stroke-width="5" fill="${A}" fill-opacity=".05"/>${circle()}${text(160,174,'×1000 RPM',12,S)}`;break;
+case 6:art=`${circle(-135,135,91,true)}${text(160,170,(v/1000).toFixed(1),32,D)}${text(160,192,'RPM',12,A)}`;break;
+case 7:art=`<circle cx="160" cy="111" r="99" stroke="${S}" stroke-width="8" fill="#a1844c" fill-opacity=".1"/><circle cx="160" cy="111" r="92" stroke="${S}" stroke-width="1" fill="none"/>${circle(-135,135,83)}${text(160,177,'r/min',13,S)}`;break;
+case 8:art=`<path d="${arc(160,181,129,-80,80)}" stroke="#324355" stroke-width="17" fill="none"/><path d="${arc(160,181,129,-80,-80+160*ratio)}" stroke="${A}" stroke-width="13" fill="none"/>${text(160,130,(v/1000).toFixed(1),73,D)}${text(160,156,'×1000 RPM',13,A)}`;break;
+default:art=`${circle(-135,135,98,true)}<rect x="107" y="85" width="106" height="65" rx="8" fill="#08131f" fill-opacity=".9" stroke="${A}"/>${text(160,132,(v/1000).toFixed(1),46,D)}${text(160,145,'×1000',10,A)}`;
+}
+return `<svg viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet" class="speed-art" role="img" aria-label="${style}: ${v} RPM">${art}</svg>`;
+}
+// Hybrid instrumentation: independent scalable SVGs, with no opaque background.
+function vehicleArt(type,pct,flow){
+ const A='var(--accent)',S='var(--scale)',D='var(--digits)';
+ const battery=type==='battery',charging=simPower<0;
+ const cells=Array.from({length:8},(_,i)=>`<rect x="${130+(i%2)*32}" y="${70+Math.floor(i/2)*20}" width="25" height="15" rx="3" fill="${i<Math.ceil(pct/12.5)?(charging?'#6ae3b3':A):'#24374b'}" opacity="${i<Math.ceil(pct/12.5)?'.95':'.55'}"/>`).join('');
+ return `<defs><linearGradient id="carShell${type}" x1="0" x2="1"><stop stop-color="#395d7a"/><stop offset=".5" stop-color="#8eafc6"/><stop offset="1" stop-color="#395d7a"/></linearGradient></defs>${battery?'':`<text x="160" y="19" text-anchor="middle" fill="${S}" font-size="14" font-weight="700">VEHICLE ENERGY</text>`}<g transform="translate(0 ${battery?0:7})"><path d="M126 34 Q130 18 160 17 Q190 18 194 34 L207 70 L207 159 Q201 186 187 195 L133 195 Q119 186 113 159 L113 70 Z" fill="url(#carShell${type})" fill-opacity=".15" stroke="${S}" stroke-width="3"/><path d="M135 47 Q160 34 185 47 L193 70 H127 Z" fill="#112337" stroke="${A}" stroke-width="1.5"/><path d="M128 157 L192 157 L186 181 L134 181 Z" fill="#102336" stroke="${A}" stroke-width="1.5"/><rect x="107" y="55" width="7" height="35" rx="3" fill="#405c74"/><rect x="206" y="55" width="7" height="35" rx="3" fill="#405c74"/><rect x="107" y="143" width="7" height="35" rx="3" fill="#405c74"/><rect x="206" y="143" width="7" height="35" rx="3" fill="#405c74"/>${cells}<path d="M160 53 V70 M160 150 V170" stroke="${flow}" stroke-width="3" class="${battery?'':'energy-stream'}"/></g>${battery?`<text x="160" y="216" text-anchor="middle" fill="${D}" font-size="17" font-weight="700">${pct}% BATTERY</text>`:`<text x="48" y="99" text-anchor="middle" fill="${S}" font-size="11">${engineOn?'ENGINE':'EV'}</text><text x="270" y="99" text-anchor="middle" fill="${flow}" font-size="12">${charging?'REGEN':simPower+' kW'}</text><text x="160" y="216" text-anchor="middle" fill="${S}" font-size="12">BATTERY ${pct}%</text>`}`;
+}
+function hybridSVG(type,style){
+ const A='var(--accent)',S='var(--scale)',N='var(--needle)',D='var(--digits)';
+ const value=type==='fuel'?simFuel:simBattery;
+ const pct=Math.max(0,Math.min(100,value));
+ const label=type==='fuel'?'FUEL':'HYBRID BATTERY';
+ const text=(x,y,t,size=18,col=D,weight=600,extra='')=>`<text x="${x}" y="${y}" text-anchor="middle" fill="${col}" font-family="Segoe UI,Arial,sans-serif" font-size="${size}" font-weight="${weight}" ${extra}>${t}</text>`;
+ const line=(x,y,w,h,col=A,opacity=1)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${Math.min(3,h/2)}" fill="${col}" opacity="${opacity}"/>`;
+ let art='';
+ if(type==='energy'){
+   const motor=engineOn,regen=simPower<0,active=simPower!==0;
+   const flow=regen?'#61e6b6':A;
+   const wire=(d,lit)=>`<path d="${d}" fill="none" stroke="${lit?flow:'#344b5e'}" stroke-width="${lit?4:2.5}" stroke-linecap="round" ${lit?'class="energy-stream"':''}/>`;
+   const node=(x,y,word,symbol,col=A)=>`<rect x="${x-38}" y="${y-30}" width="76" height="60" rx="10" fill="#101b2a" fill-opacity=".45" stroke="${col}" stroke-width="1.5"/>${text(x,y+2,symbol,21,col,700)}${text(x,y+19,word,9,S,600)}`;
+   if(style==='Energy Balance')art=`${text(160,30,'ENERGY BALANCE',14,S,700)}${text(160,90,simPower>0?'+'+simPower:simPower,61,flow,800)}${text(160,113,'kW',17,S)}<path d="M32 148 H288" stroke="#38516a" stroke-width="12" stroke-linecap="round"/>${line(simPower<0?160-Math.abs(simPower)/30*115:160,142,Math.abs(simPower)/(simPower<0?30:80)*115,12,flow)}${text(72,183,'REGEN',12,'#67e4b4')}${text(252,183,'DRIVE',12,A)}${text(160,208,'BATTERY '+pct+'%',12,S)}`;
+   else if(style==='Minimal Flow')art=`${text(160,43,'POWERTRAIN',15,S,700)}${text(160,108,regen?'REGENERATING':motor?'HYBRID DRIVE':'ELECTRIC DRIVE',21,flow,800)}${text(160,142,(simPower>0?'+':'')+simPower+' kW',31,D,700)}${text(160,180,'BATTERY '+pct+'%  •  FUEL '+simFuel+'%',12,S)}`;
+   else if(style==='Vehicle Energy')art=vehicleArt('energy',pct,flow);
+   else if(style==='Energy Network'){
+     // A radar chart represents relative involvement, not physical energy direction.
+     const values=regen?[.02,.35,.95,.45]:!motor?[.02,.9,.55,.72]:[Math.min(1,.35+Math.abs(simPower)/80),Math.min(1,.3+Math.abs(simPower)/95),Math.min(1,.15+pct/150),Math.min(1,.4+simSpeed/350)];
+     const pos=[[160,40],[247,116],[160,192],[73,116]];
+     const shape=(f,arr)=>arr.map((v,i)=>`${(160+(pos[i][0]-160)*v*f).toFixed(1)},${(116+(pos[i][1]-116)*v*f).toFixed(1)}`).join(' ');
+     art=`${text(160,18,'ENERGY NETWORK',13,S,700)}${[.25,.5,.75,1].map(f=>`<polygon points="${shape(f,[1,1,1,1])}" fill="none" stroke="#365067" stroke-width="1"/>`).join('')}${pos.map(([x,y])=>`<line x1="160" y1="116" x2="${x}" y2="${y}" stroke="#365067"/>`).join('')}<polygon points="${shape(1,values)}" fill="${flow}" fill-opacity=".2" stroke="${flow}" stroke-width="3" stroke-linejoin="round"/>${values.map((v,i)=>{const x=160+(pos[i][0]-160)*v,y=116+(pos[i][1]-116)*v;return `<circle cx="${x}" cy="${y}" r="4" fill="${flow}"/>`}).join('')}${text(160,33,'ENGINE',10,N)}${text(280,120,'MOTOR',10,S)}${text(160,211,'BATTERY',10,'#66e0b3')}${text(40,120,'WHEELS',10,S)}`;
+   }else{
+     const components=[[160,38,'ENGINE',N],[265,113,'WHEELS',S],[160,186,'BATTERY','#66e0b3'],[55,113,'MOTOR',A]];
+     const edges=['M160 38 L265 113','M265 113 L160 186','M160 186 L55 113','M55 113 L160 38'];
+     art=`${text(160,16,'POWER CIRCUIT',13,S,700)}<circle cx="160" cy="112" r="78" fill="none" stroke="#34485e" stroke-width="2" stroke-dasharray="3 7"/>${edges.map((d,i)=>wire(d,(i===0&&motor&&!regen)||(i===1&&regen)||(i===2&&active)||(i===3&&motor&&active))).join('')}${components.map(([x,y,name,color])=>`<circle cx="${x}" cy="${y}" r="23" fill="#101c2b" fill-opacity=".7" stroke="${color}" stroke-width="2"/>${text(x,y+4,name==='BATTERY'?pct+'%':name==='ENGINE'?'ICE':name==='MOTOR'?'M':'W',name==='BATTERY'?13:16,color,800)}${text(x,y+34,name,9,S)}`).join('')}${text(160,116,(simPower>0?'+':'')+simPower+' kW',16,flow,700)}`;
+   }
+ } else if(type==='fuel'){
+  if(style==='Bar')art=`${text(160,55,label,17,S,700)}<rect x="35" y="92" width="250" height="30" rx="9" stroke="${S}" fill="none" stroke-width="2"/>${line(41,98,238*pct/100,18,A)}${text(160,170,pct+'%',39,D,800)}`;
+  else if(style==='Text')art=`${text(160,54,'FUEL LEVEL',17,S,700)}${text(160,141,pct+'%',80,D,800)}${text(160,180,'E  ──────────  F',14,A,600)}`;
+  else if(style==='Classic Needle'){
+   const a=-110+pct*2.2; const p=polar(160,132,80,a);
+   art=`${text(160,33,'FUEL',17,S,700)}<path d="${arc(160,132,95,-110,110)}" fill="none" stroke="${S}" stroke-width="5"/>${Array.from({length:11},(_,i)=>{const d=-110+i*22,u=polar(160,132,92,d),v=polar(160,132,i%5===0?75:83,d);return `<line x1="${u[0]}" y1="${u[1]}" x2="${v[0]}" y2="${v[1]}" stroke="${S}" stroke-width="${i%5===0?3:1.5}"/>`}).join('')}<line x1="160" y1="132" x2="${p[0]}" y2="${p[1]}" stroke="${N}" stroke-width="5" stroke-linecap="round"/><circle cx="160" cy="132" r="9" fill="${S}"/>${text(61,185,'E',16,S)}${text(259,185,'F',16,S)}${text(160,193,pct+'%',17,D)}`;
+  }else if(style==='Vertical LED')art=`${text(160,25,'FUEL',15,S,700)}${Array.from({length:10},(_,i)=>line(110,39+i*16,100,11,i<10-Math.ceil(pct/10)?'#33485b':i>7?'#61dba4':A,i<10-Math.ceil(pct/10)?.4:1)).join('')}${text(160,215,pct+'%',22,D,700)}`;
+  else if(style==='Radial Ring')art=`<circle cx="160" cy="110" r="75" stroke="#354b61" stroke-width="14" fill="none"/><circle cx="160" cy="110" r="75" stroke="${A}" stroke-width="14" fill="none" stroke-linecap="round" stroke-dasharray="${(2*Math.PI*75*pct/100).toFixed(1)} 999" transform="rotate(-90 160 110)"/>${text(160,111,pct+'%',46,D,800)}${text(160,143,'FUEL',15,S,700)}`;
+  else art=`${text(160,45,'FUEL CELLS',17,S,700)}${Array.from({length:12},(_,i)=>`<rect x="${22+i*23}" y="78" width="17" height="68" rx="3" fill="${i<pct/100*12?i<2?'#f7b95e':A:'#293a4e'}" opacity="${i<pct/100*12?1:.55}"/>`).join('')}${text(160,183,pct+'%',31,D,800)}`;
+ } else {
+  if(style==='Percentage')art=`${text(160,54,'HYBRID BATTERY',17,S,700)}${text(160,146,pct+'%',78,D,800)}`;
+  else if(style==='Bar')art=`${text(160,55,'BATTERY',17,S,700)}<rect x="33" y="92" width="245" height="39" rx="7" stroke="${S}" stroke-width="3" fill="none"/><rect x="280" y="103" width="10" height="17" rx="2" fill="${S}"/>${line(39,98,232*pct/100,27,A)}${text(160,176,pct+'%',33,D,700)}`;
+  else if(style==='Battery Cells')art=`${text(160,35,'HYBRID BATTERY',16,S,700)}<rect x="31" y="63" width="248" height="90" rx="12" fill="none" stroke="${S}" stroke-width="4"/><rect x="282" y="95" width="11" height="27" rx="3" fill="${S}"/>${Array.from({length:8},(_,i)=>`<rect x="${41+i*29}" y="74" width="23" height="68" rx="4" fill="${i<pct/12.5?A:'#2a3d51'}" opacity="${i<pct/12.5?1:.5}"/>`).join('')}${text(160,192,pct+'%',29,D,800)}`;
+  else if(style==='Circular Charge')art=`<circle cx="160" cy="111" r="78" stroke="#33475b" stroke-width="15" fill="none"/><circle cx="160" cy="111" r="78" stroke="${A}" stroke-width="15" fill="none" stroke-linecap="round" stroke-dasharray="${(2*Math.PI*78*pct/100).toFixed(1)} 999" transform="rotate(-90 160 111)"/>${text(160,109,pct+'%',46,D,800)}${text(160,138,'HYBRID',13,S,700)}`;
+  else if(style==='Vertical Gauge')art=`${text(160,27,'BATTERY CHARGE',16,S,700)}<rect x="118" y="44" width="84" height="141" rx="9" fill="none" stroke="${S}" stroke-width="3"/><rect x="144" y="35" width="32" height="9" rx="3" fill="${S}"/>${line(127,176-123*pct/100,66,123*pct/100,A)}${text(160,210,pct+'%',21,D,800)}`;
+  else if(style==='Vehicle Battery')art=vehicleArt('battery',pct,A);
+  else art=`${text(160,33,'HYBRID PULSE',16,S,700)}<path d="M25 113 H78 L98 81 L128 147 L154 66 L181 119 H208 L227 94 L244 113 H295" fill="none" stroke="${A}" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>${text(160,190,pct+'%',46,D,800)}`;
+ }
+ return `<svg class="hybrid-art" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${type} ${style}: ${type==='energy'?simPower+' kilowatts':pct+' percent'}">${art}</svg>`;
+}
+function compactArt(m){
+ const A='var(--accent)',S='var(--scale)',D='var(--digits)';
+ const t=(x,y,v,size=28,col=D,weight=700)=>`<text x="${x}" y="${y}" text-anchor="middle" fill="${col}" font-family="Segoe UI,Arial,sans-serif" font-size="${size}" font-weight="${weight}">${v}</text>`;
+ let a='';
+ if(m.type==='gear'){
+  const rail=['P','R','N','D'],active=simGear,idx=rail.indexOf(active),compact=m.w<=2||m.h<=1;
+  const fontMap={Standard:'Segoe UI,Arial,sans-serif',Sport:'Arial Black,Impact,sans-serif',Oldtimer:'Georgia,Times New Roman,serif',Modern:'Trebuchet MS,Arial,sans-serif',Futuristic:'Consolas,monospace'};
+  const font=fontMap[m.gearFont]||fontMap.Standard,colors=m.gearColors||{};
+  const letter=(x,y,z,which=active)=>`<text x="${x}" y="${y}" text-anchor="middle" font-family="${font}" font-weight="${m.gearFont==='Oldtimer'?500:900}" font-size="${z}" fill="${m.gearOutline?'none':(colors[which]||D)}" stroke="${m.gearOutline?(colors[which]||D):'none'}" stroke-width="${m.gearOutline?3:0}" paint-order="stroke" letter-spacing="-3">${which}</text>`;
+  if(m.style==='Classic Shifter'){
+   const pts=[[63,35],[63,81],[98,128],[98,177]];
+   a=`<path d="M63 35 V81 H98 V177" fill="none" stroke="${S}" stroke-width="13" stroke-linecap="square" stroke-linejoin="miter"/><path d="M63 35 V81 H98 V177" fill="none" stroke="${A}" stroke-width="4" stroke-linejoin="miter"/>${rail.map((v,i)=>`<text x="${pts[i][0]-27}" y="${pts[i][1]+6}" text-anchor="middle" fill="${colors[v]||S}" font-size="20" font-family="${font}" font-weight="700">${v}</text>`).join('')}<circle cx="${pts[idx][0]}" cy="${pts[idx][1]}" r="15" fill="var(--fill)" stroke="${D}" stroke-width="4"/>${letter(230,153,compact?128:145)}`;
+  }else if(m.style==='Compass Gear'){
+   const cx=compact?116:121,cy=110,r=compact?85:88,angs=[-135,-45,45,135],point=polar(cx,cy,r-21,angs[idx]);
+   a=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="var(--fill)" fill-opacity=".35" stroke="${S}" stroke-width="4"/><circle cx="${cx}" cy="${cy}" r="${r-16}" fill="none" stroke="${A}" stroke-width="1.5"/>${rail.map((v,i)=>{const q=polar(cx,cy,r-9,angs[i]);return `<text x="${q[0]}" y="${q[1]+5}" text-anchor="middle" font-size="${compact?18:21}" font-weight="800" font-family="${font}" fill="${colors[v]||D}">${v}</text>`}).join('')}<circle cx="${point[0]}" cy="${point[1]}" r="9" fill="${A}" stroke="${D}" stroke-width="2"/>${letter(cx,cy+22,compact?72:81)}${!compact?letter(268,145,90):''}`;
+  }else a=letter(160,157,145);
+ }else if(m.type==='mode'){
+  if(m.style==='Drive Badge')a=`<path d="M53 110 L90 43 H230 L267 110 L230 177 H90 Z" fill="${A}" fill-opacity=".13" stroke="${A}" stroke-width="4"/>${t(160,125,'NORMAL',37)}`;
+  else if(m.style==='Mode Strip')a=`${['ECO','NORMAL','SPORT'].map((v,i)=>`<rect x="${9+i*102}" y="76" width="96" height="65" rx="7" fill="${v==='NORMAL'?A:'#20354b'}" fill-opacity="${v==='NORMAL'?.4:.3}" stroke="${v==='NORMAL'?A:'#456079'}"/><text x="${57+i*102}" y="116" text-anchor="middle" font-size="${v==='NORMAL'?17:19}" fill="${v==='NORMAL'?'white':S}">${v}</text>`).join('')}`;
+  else if(m.style==='Compact')a=t(160,130,'NORMAL',51,A);
+  else a=`${t(160,67,'DRIVE MODE',22,S)}${t(160,140,'NORMAL',47)}`;
+ }else if(m.type==='range'){
+  if(m.style==='Distance Arc')a=`<path d="M60 163 A108 108 0 0 1 260 163" fill="none" stroke="#31485d" stroke-width="14"/><path d="M60 163 A108 108 0 0 1 207 70" fill="none" stroke="${A}" stroke-width="12"/>${t(160,134,'379',78)}${t(160,163,'km',22,S)}`;
+  else if(m.style==='Range Bar')a=`${t(160,99,'379 km',63)}<rect x="33" y="133" width="254" height="18" rx="8" fill="#30455a"/><rect x="33" y="133" width="190" height="18" rx="8" fill="${A}"/>`;
+  else if(m.style==='Compact')a=t(160,134,'379 km',65);
+  else a=`${t(160,125,'379 km',64)}`;
+ }else if(m.type==='clock'){
+  const now=new Date(),hh=now.getHours(),mm=now.getMinutes();
+  if(m.style==='Analog'){
+   const hour=polar(160,110,46,(hh%12)*30+mm/2),minute=polar(160,110,69,mm*6);
+   a=`<circle cx="160" cy="110" r="89" fill="var(--fill)" fill-opacity=".35" stroke="${A}" stroke-width="5"/>${Array.from({length:12},(_,i)=>{const p=polar(160,110,74,i*30),q=polar(160,110,84,i*30);return `<line x1="${p[0]}" y1="${p[1]}" x2="${q[0]}" y2="${q[1]}" stroke="${S}" stroke-width="${i%3===0?5:2}"/>`}).join('')}<line x1="160" y1="110" x2="${hour[0]}" y2="${hour[1]}" stroke="${D}" stroke-width="7" stroke-linecap="round"/><line x1="160" y1="110" x2="${minute[0]}" y2="${minute[1]}" stroke="var(--needle)" stroke-width="4" stroke-linecap="round"/><circle cx="160" cy="110" r="6" fill="${A}"/>`;
+  }else a=t(160,143,now.toLocaleTimeString('de-CH',{hour:'2-digit',minute:'2-digit'}),88);
+
+ }
+ return `<svg class="hybrid-art" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${m.type} ${m.style}">${a}</svg>`;
+}
+function vehicleModuleArt(m){
+ const A='var(--accent)',S='var(--scale)',D='var(--digits)';
+ const txt=(x,y,v,z=24,c=D,w=700)=>`<text x="${x}" y="${y}" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="${z}" font-weight="${w}" fill="${c}">${v}</text>`;
+ const line=(x,y,w,h,c=A)=>`<rect x="${x}" y="${y}" width="${Math.max(0,w)}" height="${h}" rx="${Math.min(h/2,8)}" fill="${c}"/>`;
+ const pct=(n)=>Math.max(0,Math.min(100,n));
+ const ev=pct(Math.round(80-simSpeed*.2+(engineOn?-22:14))),regen=pct(Math.round(Math.max(0,-simPower)/30*100));
+ let a='',label='';
+ switch(m.type){
+ case 'outside':{
+  const frost=simOutside<=3;
+  if(m.style==='Thermometer')a=`<rect x="53" y="35" width="20" height="113" rx="10" fill="none" stroke="${S}" stroke-width="5"/><circle cx="63" cy="156" r="22" fill="${frost?'#84dcff':A}"/>${line(58,95,10,58,frost?'#84dcff':A)}${txt(208,133,simOutside+'°C',65)}${frost?txt(208,171,'ICE RISK',19,'#9bdcff'):''}`;
+  else if(m.style==='Frost Alert')a=`${txt(160,112,simOutside+'°C',76)}${frost?txt(160,170,'❄  ICE WARNING',23,'#9bdcff'):txt(160,170,'OUTSIDE',19,S)}`;
+  else a=`${txt(160,137,simOutside+'°C',85)}`;
+  break;
+ }
+ case 'navigation':{
+  const d=simNav>=1000?(simNav/1000).toFixed(1)+' km':simNav+' m';
+  const arrow='<path d="M120 177 V100 Q120 73 152 73 H215 M188 46 L218 73 L188 100" fill="none" stroke="'+A+'" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>';
+  if(m.style==='Minimal Arrow')a=`${arrow}${txt(247,164,d,34)}`;
+  else if(m.style==='Route Line')a=`<path d="M39 181 Q70 112 124 132 T223 67" stroke="#35485d" stroke-width="21" fill="none" stroke-linecap="round"/><path d="M39 181 Q70 112 124 132 T223 67" stroke="${A}" stroke-width="8" fill="none" stroke-linecap="round"/>${txt(260,66,'↱',61,A)}${txt(170,209,d,30)}`;
+  else a=`${arrow}${txt(240,151,d,41)}${txt(160,209,'TURN RIGHT',20,S)}`;
+  break;
+ }
+ case 'acc':{
+  const gap=Array.from({length:3},(_,i)=>`<circle cx="${141+i*20}" cy="${m.style==='Distance Radar'?172:189}" r="6" fill="${i<simGap?A:'#31485c'}"/>`).join('');
+  if(m.style==='Compact Set')a=`${txt(160,55,'ACC SET',21,S)}${txt(160,147,simCruise,93)}${txt(160,187,'km/h',19,S)}`;
+  else if(m.style==='Distance Radar')a=`<path d="M83 152 Q160 46 237 152 M103 152 Q160 80 217 152" stroke="${A}" stroke-width="4" fill="none" opacity=".75"/><rect x="143" y="62" width="34" height="48" rx="9" fill="#496e89" stroke="${S}" stroke-width="2"/>${txt(160,151,simCruise+' km/h',31)}${gap}`;
+  else a=`${txt(160,51,'ACC ACTIVE',19,A)}${txt(160,134,simCruise,81)}${txt(160,159,'km/h  SET',17,S)}${gap}`;
+  break;
+ }
+ case 'assist':{
+  const road=`<path d="M125 15 L45 212 M195 15 L275 212" stroke="${A}" stroke-width="6" stroke-linecap="round" fill="none"/><path d="M160 21 V80" stroke="#4d6378" stroke-width="3" stroke-dasharray="8 9"/>`;
+  const car=`<rect x="132" y="127" width="56" height="72" rx="16" fill="#315c78" stroke="${D}" stroke-width="2"/><rect x="141" y="138" width="38" height="22" rx="6" fill="#0d2336"/><rect x="140" y="184" width="12" height="6" rx="2" fill="#f66c68"/><rect x="168" y="184" width="12" height="6" rx="2" fill="#f66c68"/>`;
+  if(m.style==='Minimal Assist')a=`${txt(160,76,'LANE ASSIST',29,A)}${txt(160,129,'●  ACTIVE  ●',26)}${txt(160,175,'ACC '+simCruise+' km/h',20,S)}`;
+  else if(m.style==='Road Perspective')a=`<path d="M142 14 L80 212 H240 L178 14Z" fill="#1b2d40" opacity=".7"/>${road}<rect x="143" y="59" width="34" height="44" rx="10" fill="#647c93" stroke="${S}" stroke-width="2"/>${car}${txt(42,32,'ACC',16,A)}${txt(278,32,simCruise,20,D)}`;
+  else a=`${road}<rect x="143" y="62" width="34" height="42" rx="10" fill="#647c93" stroke="${S}" stroke-width="2"/>${car}<path d="M120 114 Q160 130 200 114" stroke="${A}" stroke-width="3" stroke-dasharray="5 5" fill="none"/>`;
+  break;
+ }
+ case 'engineTemp':{
+  const v=engineOn?88:28,level=pct((v-20)/100*100)/100;
+  const cold=txt(38,192,'C',19,S),hot=txt(282,192,'H',19,'var(--discharge)');
+  if(m.style==='Modern Bar')a=`${txt(160,92,v+'°C',62)}<rect x="33" y="122" width="254" height="20" rx="10" fill="var(--fill)"/>${line(33,122,254*level,20)}${cold}${hot}`;
+  else if(m.style==='Classic Bar')a=`${txt(160,78,v+'°C',52)}${Array.from({length:15},(_,i)=>`<rect x="${28+i*18}" y="109" width="13" height="42" rx="1" fill="${i<Math.round(level*15)?A:'var(--fill)'}" stroke="${S}" stroke-width=".7"/>`).join('')}${cold}${hot}`;
+  else if(m.style==='Vintage Round'){
+   const q=polar(160,113,73,-125+250*level);
+   a=`<circle cx="160" cy="110" r="98" fill="var(--fill)" stroke="${S}" stroke-width="7"/><circle cx="160" cy="110" r="88" fill="none" stroke="${A}" stroke-width="2"/>${Array.from({length:11},(_,i)=>{const p=polar(160,113,80,-125+i*25),e=polar(160,113,67,-125+i*25);return `<line x1="${p[0]}" y1="${p[1]}" x2="${e[0]}" y2="${e[1]}" stroke="${S}" stroke-width="3"/>`}).join('')}<line x1="160" y1="113" x2="${q[0]}" y2="${q[1]}" stroke="var(--needle)" stroke-width="5"/><circle cx="160" cy="113" r="8" fill="${A}"/>${txt(160,176,v+'°C',27)}${txt(77,184,'C',18,S)}${txt(243,184,'H',18,S)}`;
+  }else if(m.style==='Vintage Half Dial'){
+   const q=polar(160,171,105,-80+160*level);
+   a=`<path d="M40 173 A120 120 0 0 1 280 173 L280 193 H40 Z" fill="var(--fill)" stroke="${S}" stroke-width="5"/><path d="M53 169 A107 107 0 0 1 267 169" fill="none" stroke="${A}" stroke-width="3"/>${Array.from({length:9},(_,i)=>{const p=polar(160,171,110,-80+i*20),e=polar(160,171,97,-80+i*20);return `<line x1="${p[0]}" y1="${p[1]}" x2="${e[0]}" y2="${e[1]}" stroke="${S}" stroke-width="2"/>`}).join('')}<line x1="160" y1="171" x2="${q[0]}" y2="${q[1]}" stroke="var(--needle)" stroke-width="5"/><circle cx="160" cy="171" r="7" fill="${A}"/>${txt(160,127,v+'°C',31)}${txt(52,199,'C',16,S)}${txt(269,199,'H',16,S)}`;
+  }else if(m.style==='Digital Scale')a=`${txt(160,115,v+'°C',75)}${Array.from({length:19},(_,i)=>`<rect x="${33+i*14}" y="142" width="9" height="${i%3===0?24:14}" fill="${i<Math.round(level*19)?A:'var(--fill)'}"/>`).join('')}${cold}${hot}`;
+  else a=txt(160,138,v+'°C',89);
+  break;
+ }
+ case 'evShare':{
+  if(m.style==='EV Ring')a=`<circle cx="160" cy="111" r="75" stroke="#304559" stroke-width="15" fill="none"/><circle cx="160" cy="111" r="75" stroke="${A}" stroke-width="15" fill="none" stroke-dasharray="${Math.round(471*ev/100)} 999" transform="rotate(-90 160 111)"/>${txt(160,127,ev+'%',51)}`;
+  else if(m.style==='EV Bar')a=`${txt(160,104,ev+'%',70)}<rect x="34" y="129" width="252" height="23" rx="8" fill="#31485d"/>${line(34,129,252*ev/100,23)}`;
+  else a=txt(160,137,ev+'%',85);
+  break;
+ }
+ case 'regen':{
+  // Positive = traction battery discharging; negative = recuperation charging.
+  const value=simPower,charging=value<0,color=charging?'var(--charge)':'var(--discharge)',mag=Math.min(1,Math.abs(value)/(charging?30:80));
+  const valueText=(value>0?'+':'')+value+' kW';
+  if(m.style==='Digital Minimal')a=txt(160,136,valueText,70,color);
+  else if(m.style==='Digital Symbol')a=`${txt(160,117,valueText,64,color)}${txt(160,169,charging?'↘  CHARGING':value>0?'↗  POWER USE':'—  IDLE',23,S)}`;
+  else if(m.style==='Horizontal Center Bar')a=`<rect x="25" y="115" width="270" height="27" rx="6" fill="var(--fill)"/><line x1="160" y1="103" x2="160" y2="158" stroke="${D}" stroke-width="3"/><rect x="${charging?160-130*mag:160}" y="115" width="${130*mag}" height="27" rx="3" fill="${color}"/>${txt(160,82,valueText,51,color)}${txt(33,183,'CHARGE',15,'var(--charge)')}${txt(282,183,'USE',15,'var(--discharge)')}`;
+  else if(m.style==='Vertical Center Bar')a=`<rect x="136" y="25" width="48" height="170" rx="8" fill="var(--fill)"/><line x1="121" y1="110" x2="200" y2="110" stroke="${D}" stroke-width="3"/><rect x="136" y="${charging?110:110-79*mag}" width="48" height="${79*mag}" fill="${color}"/>${txt(251,121,valueText,36,color)}${txt(65,50,'USE',18,'var(--discharge)')}${txt(65,183,'CHARGE',18,'var(--charge)')}`;
+  else if(m.style==='Analog Round'){
+   const q=polar(160,110,77,-120+(charging?(1-mag)*120:120+mag*120));
+   a=`<circle cx="160" cy="109" r="100" fill="var(--fill)" stroke="${S}" stroke-width="6"/><path d="${arc(160,110,87,-120,0)}" stroke="var(--charge)" stroke-width="6" fill="none"/><path d="${arc(160,110,87,0,120)}" stroke="var(--discharge)" stroke-width="6" fill="none"/><line x1="160" y1="110" x2="${q[0]}" y2="${q[1]}" stroke="var(--needle)" stroke-width="5"/><circle cx="160" cy="110" r="8" fill="${D}"/>${txt(160,166,valueText,30,color)}${txt(87,185,'−',24,'var(--charge)')}${txt(234,185,'+',24,'var(--discharge)')}`;
+  }else{
+   const q=polar(160,165,95,-80+(charging?(1-mag)*80:80+mag*80));
+   a=`<path d="M39 168 A121 121 0 0 1 281 168 L281 194 H39 Z" fill="var(--fill)" stroke="${S}" stroke-width="5"/><path d="${arc(160,165,108,-80,0)}" stroke="var(--charge)" stroke-width="5" fill="none"/><path d="${arc(160,165,108,0,80)}" stroke="var(--discharge)" stroke-width="5" fill="none"/>${Array.from({length:9},(_,i)=>{const p=polar(160,165,110,-80+i*20),e=polar(160,165,96,-80+i*20);return `<line x1="${p[0]}" y1="${p[1]}" x2="${e[0]}" y2="${e[1]}" stroke="${S}" stroke-width="2"/>`}).join('')}<line x1="160" y1="165" x2="${q[0]}" y2="${q[1]}" stroke="var(--needle)" stroke-width="5"/><circle cx="160" cy="165" r="7" fill="${D}"/>${txt(160,124,valueText,31,color)}${txt(60,194,'CHG',16,'var(--charge)')}${txt(258,194,'PWR',16,'var(--discharge)')}`;
+  }
+  break;
+ }
+ case 'consumption':{
+  const avg=5.3,live=simSpeed===0?0:Math.max(0,(simPower>0?simPower:0)*.14+2.2);
+  if(m.style==='Live')a=`${txt(160,116,live.toFixed(1),79)}${txt(160,162,'L/100 km  ·  LIVE',19,S)}`;
+  else if(m.style==='Efficiency Bar')a=`${txt(160,100,avg.toFixed(1)+' L/100',50)}<rect x="30" y="131" width="260" height="22" rx="8" fill="#31485d"/>${line(30,131,260*(1-avg/12),22)}${txt(160,190,'AVERAGE CONSUMPTION',16,S)}`;
+  else a=`${txt(160,119,avg.toFixed(1),83)}${txt(160,163,'L/100 km',24,S)}`;
+  break;
+ }
+ }
+ return `<svg class="hybrid-art" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${m.type} ${m.style}">${a}</svg>`;
+}
+function additionalArt(m){
+ const A='var(--accent)',D='var(--digits)',S='var(--scale)',v=Number(simPower)||0;
+ const t=(x,y,str,size=28,color=D,weight=600)=>`<text x="${x}" y="${y}" text-anchor="middle" font-size="${size}" font-weight="${weight}" fill="${color}" font-family="Segoe UI,Arial">${str}</text>`;
+ const bar=(x,y,w,h,p)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="5" fill="#2b3d50"/><rect x="${x}" y="${y}" width="${Math.max(0,w*Math.min(1,p))}" height="${h}" rx="5" fill="${A}"/>`;
+ let a='';
+ if(m.type==='warnings'){
+  if(m.style==='Text')a=t(160,104,'SYSTEM OK',40)+t(160,151,'NO ACTIVE WARNINGS',17,S);
+  else if(m.style==='Status Lights')a=`<circle cx="74" cy="100" r="30" fill="#193d32" stroke="#5be6aa" stroke-width="4"/>${t(74,111,'✓',37,'#5be6aa')}<circle cx="160" cy="100" r="30" fill="#25364a" stroke="${S}" stroke-width="3"/>${t(160,110,'i',34)}<circle cx="246" cy="100" r="30" fill="#25364a" stroke="${S}" stroke-width="3"/>${t(246,110,'!',34)}${t(160,168,'SYSTEM STATUS',19,S)}`;
+  else if(m.style==='Warning Strip')a=`<rect x="22" y="65" width="276" height="88" rx="12" fill="#152a3d" stroke="${S}"/>${t(76,121,'✓',44,'#5be6aa')}${t(174,105,'ALL SYSTEMS',25)}${t(174,136,'NORMAL',27,A)}`;
+  else a=`${t(74,112,'◉',54,A)}${t(160,112,'◇',53,S)}${t(246,112,'△',53,S)}${t(160,170,'STATUS ICONS',17,S)}`;
+ } else if(m.type==='trip'){
+  if(m.style==='Compact')a=t(160,82,'790.4 km',52)+t(160,121,'17h 21m   ·   46 km/h',24,S)+t(160,159,'5.3 L/100 km',24,A);
+  else if(m.style==='Trip Cards')a=`${[[26,'790.4','km'],[168,'17:21','h:min']].map(([x,n,u])=>`<rect x="${x}" y="46" width="126" height="127" rx="14" fill="#172c40" stroke="${A}"/>${t(x+63,106,n,35)}${t(x+63,144,u,18,S)}`).join('')}`;
+  else if(m.style==='Journey Timeline')a=`<path d="M39 131 H281" stroke="${S}" stroke-width="4"/><circle cx="43" cy="131" r="10" fill="${A}"/><circle cx="278" cy="131" r="10" fill="${A}"/>${t(160,79,'790.4 km',47)}${t(77,169,'START',17,S)}${t(244,169,'NOW',17,S)}${t(160,199,'17h 21m  ·  46 km/h',17)}`;
+  else a=`${[[22,39,'790.4','DISTANCE km'],[164,39,'17:21','DRIVE TIME'],[22,118,'46','AVG km/h'],[164,118,'5.3','L/100 km']].map(([x,y,n,l])=>`<rect x="${x}" y="${y}" width="134" height="68" rx="8" fill="#15293c" stroke="#42647e"/>${t(x+67,y+36,n,30)}${t(x+67,y+57,l,13,S)}`).join('')}`;
+ } else if(m.type==='lane'){
+  const road=`<path d="M132 25 L60 202 M188 25 L260 202" stroke="${A}" stroke-width="5" fill="none"/>`;
+  const symbol=['Arrow','Abstract Car','Graphic Car','Steering Wheel'].includes(m.style)?m.style:(m.laneSymbol||'Graphic Car');
+  const icon=symbol==='Arrow'?`<path d="M160 108 L131 180 L160 163 L189 180 Z" fill="${D}" stroke="${A}" stroke-width="3"/>`:symbol==='Steering Wheel'?`<circle cx="160" cy="154" r="30" fill="none" stroke="${D}" stroke-width="7"/><circle cx="160" cy="154" r="7" fill="${A}"/><path d="M131 147 H189 M160 154 V179" stroke="${D}" stroke-width="5"/>`:symbol==='Abstract Car'?`<path d="M145 118 H175 L187 145 V177 H133 V145 Z" fill="var(--fill)" stroke="${D}" stroke-width="4"/><path d="M145 143 H175" stroke="${A}" stroke-width="4"/>`:`<path d="M144 115 Q160 106 176 115 L187 146 V177 Q160 189 133 177 V146 Z" fill="var(--fill)" stroke="${D}" stroke-width="3"/><path d="M143 140 L148 123 H172 L177 140 Z" fill="${A}"/><path d="M139 170 H150 M170 170 H181" stroke="var(--discharge)" stroke-width="5"/>`;
+  a=`<path d="M148 25 L77 208 H243 L172 25Z" fill="var(--fill)" fill-opacity=".2"/>${road}${icon}`;
+ } else if(m.type==='power'){
+  const p=Math.min(1,Math.abs(v)/80);
+  if(m.style==='Bar')a=`${t(160,104,v+' kW',59)}${bar(28,131,264,24,p)}`;
+  else if(m.style==='Power Dial')a=`<circle cx="160" cy="111" r="82" stroke="#31495e" stroke-width="16" fill="none"/><circle cx="160" cy="111" r="82" stroke="${A}" stroke-width="16" fill="none" stroke-dasharray="${Math.round(515*p)} 999" transform="rotate(-90 160 111)"/>${t(160,126,v,70)}${t(160,158,'kW',20,S)}`;
+  else if(m.style==='Power Meter')a=`${t(160,85,v+' kW',54)}${Array.from({length:12},(_,i)=>`<rect x="${26+i*23}" y="${125-(i%3)*5}" width="17" height="${35+(i%3)*5}" rx="3" fill="${i<Math.ceil(p*12)?A:'#2c4154'}"/>`).join('')}`;
+  else a=`${t(160,130,v,85)}${t(160,165,'kW',24,S)}`;
+ } else if(m.type==='odometer'){
+  if(m.style==='Odometer Strip')a=`<rect x="18" y="65" width="284" height="92" rx="10" fill="#152b40" stroke="${A}"/>${t(160,121,'001066',65)}${t(160,184,'km',22,S)}`;
+  else if(m.style==='Mechanical Counter')a=`${[0,0,1,0,6,6].map((d,i)=>`<rect x="${20+i*47}" y="71" width="42" height="76" rx="5" fill="#26384a" stroke="${S}"/>${t(41+i*47,124,d,47)}`).join('')}${t(160,184,'TOTAL km',20,S)}`;
+  else if(m.style==='Mileage Card')a=`<rect x="23" y="43" width="274" height="139" rx="19" fill="#162c40" stroke="${A}"/>${t(160,96,'TOTAL DISTANCE',20,S)}${t(160,151,'1,066 km',48)}`;
+  else a=`${t(160,126,'1,066',75)}${t(160,166,'km',24,S)}`;
+ }
+ return `<svg class="hybrid-art" viewBox="0 0 320 220" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${m.type} ${m.style}">${a}</svg>`;
+}
+function speedLimitArt(m){const n=simLimit,square=m.style==='Square Sign';const frame=square?`<rect x="70" y="21" width="180" height="178" rx="17" fill="var(--sign-fill)" stroke="var(--sign-border)" stroke-width="16"/>`:`<circle cx="160" cy="110" r="88" fill="var(--sign-fill)" stroke="var(--sign-border)" stroke-width="16"/>`;return `<svg class="hybrid-art" viewBox="0 0 320 220" role="img" aria-label="Speed limit ${n} kilometres per hour">${frame}<text x="160" y="139" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="${n>=100?69:91}" fill="var(--sign-digits)">${n}</text></svg>`}
+
+function mgFactoryArt(m){
+ const A=m.fg||'#40c5e7',W=m.digitColor||'#f5f8ff',S=m.scaleColor||'#b7cadb';
+ const label=(txt,x=160,y=35,size=20,color=W)=>`<text x="${x}" y="${y}" fill="${color}" font-family="Segoe UI,Arial,sans-serif" font-size="${size}" text-anchor="middle">${txt}</text>`;
+ const bold=(txt,x,y,size,color=W)=>`<text x="${x}" y="${y}" fill="${color}" font-family="Segoe UI,Arial,sans-serif" font-size="${size}" font-weight="650" text-anchor="middle">${txt}</text>`;
+ const box=(x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="8" fill="#0b1721" stroke="${A}" stroke-width="2"/>`;
+ let art='';
+ switch(m.type){
+ case 'speed':art=bold(simSpeed,160,137,122)+label('km/h',160,172,31)+bold('READY',160,205,21,'#52d59c');break;
+ case 'lane':art=`<path d="M126 15 L67 185 M194 15 L253 185" fill="none" stroke="${A}" stroke-opacity=".65" stroke-width="5"/><g transform="translate(129 123)"><path d="M20 8 Q25 0 42 0 H62 Q80 0 84 8 L91 68 Q85 83 70 83 H28 Q12 83 9 68Z" fill="#d9e6f5" stroke="#7098bc" stroke-width="4"/><path d="M29 16 H69 L66 40 H32Z" fill="#172c3d"/><path d="M21 60 Q50 68 78 60" fill="none" stroke="#41576c" stroke-width="4"/></g>`;break;
+ case 'trip':{
+  art=label('Accumulated Total',160,29,26);
+  const vals=[['02:48','h:min'],['86.1','km'],['48','km/h'],['4.8','l/100 km']];
+  vals.forEach(([v,u],i)=>{let x=9+(i%2)*155,y=46+Math.floor(i/2)*70;art+=box(x,y,146,63)+bold(v,x+73,y+33,28)+`<text x="${x+73}" y="${y+52}" text-anchor="middle" fill="${S}" font-size="15">${u}</text>`});
+  art+=label('Long press OK to reset',160,207,16,S);break;
+ }
+ case 'clock':art=bold(new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}),160,150,96);break;
+ case 'speedLimit':art=`<circle cx="160" cy="109" r="88" fill="#fff" stroke="#ec3c3c" stroke-width="13"/>${bold(simLimit,160,139,88,'#11151b')}`;break;
+ case 'range':art=`${label('⛽',40,143,56)}${bold(Math.round(175*simFuel/100),175,144,85)}${label('km',273,143,31,S)}`;break;
+ case 'fuel':art=`${label('E',20,130,27,S)}${Array.from({length:12},(_,i)=>`<rect x="${43+i*20}" y="97" width="16" height="27" rx="2" fill="${i<Math.round(simFuel*12/100)?A:'#27394b'}"/>`).join('')}${label('F',302,130,27,S)}`;break;
+ case 'gear':art=bold('P',160,162,145);break;
+ case 'warnings':art=`${bold('⚠',160,158,110,'#ed6457')}`;break;
+ case 'mode':art=bold('NORMAL',160,148,55,A);break;
+ case 'power':art=`${bold(simPower,138,148,85)}${label('kW',258,147,35,S)}`;break;
+ case 'battery':art=`${bold('EV',160,148,94,'#55dc94')}`;break;
+ case 'odometer':art=`${label('ODO',44,127,30,S)}${bold('838',204,129,58)}${label('km',291,128,24,S)}`;break;
+ default:return '';
+ }
+ return `<svg class="hybrid-art factory-art" viewBox="${m.h===1 && m.type!=='speedLimit' ? '0 55 320 130' : '0 0 320 220'}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="MG3 factory-inspired ${m.type}">${art}</svg>`;
+}
+function body(m){if(m.style==='MG3 Factory')return mgFactoryArt(m);if(m.type==='speedLimit')return speedLimitArt(m);if(['warnings' ,'trip','lane','power','odometer'].includes(m.type))return additionalArt(m);if(m.type==='speed')return speedSVG(m.style);if(m.type==='rpm')return rpmSVG(m.style);if(['fuel','battery','energy'].includes(m.type))return hybridSVG(m.type,m.style);if(['outside','engineTemp','regen','consumption','speedLimit','warnings','trip','lane','power','odometer'].includes(m.type))return vehicleModuleArt(m);if(['gear','mode','range','clock'].includes(m.type))return compactArt(m);switch(m.type){case'gear':return '<span class="main">D</span>';case'warnings':return '<span class="caption">◉ OFF &nbsp; ◇</span>';case'mode':return '<span class="tiny">DRIVE MODE</span><span class="caption">NORMAL</span>';case'range':return '<span class="caption">RANGE</span><span class="main">379 <small style="font-size:.4em">km</small></span>';case'clock':return '<span class="main">14:45</span>';case'trip':return '<span class="caption">Accumulated total</span><div class="stats"><div><strong>17:21</strong><small>Driving time</small></div><div><strong>790.4</strong><small>Distance km</small></div><div><strong>46</strong><small>Avg speed</small></div><div><strong>5.3</strong><small>L/100 km</small></div></div>';case'lane':return '<div class="lane"><div class="car"></div></div>';case'power':return `<span class="caption">POWER</span><span class="main">${simPower} <small style="font-size:.4em">kW</small></span>`;case'odometer':return '<span class="caption">ODOMETER</span><span class="main">1066 <small style="font-size:.4em">km</small></span>';default:return ''}}
+function originalDashboard(){
+ const speed=simSpeed, range=Math.round(175*simFuel/100),fuel=simFuel;
+ const lim=simLimit;
+ const clock=new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'});
+ const bars=Array.from({length:10},(_,i)=>`<rect x="${343+i*12}" y="358" width="10" height="5" rx="1" fill="${i<Math.round(fuel/10)?'#a9d3ef':'#293746'}"/>`).join('');
+ const stats=[['02:48','h:min'],['86.1','km'],['48','km/h'],['4.8','l/100']].map(([v,u],i)=>{const x=543+(i%2)*105,y=167+Math.floor(i/2)*51;return `<rect x="${x}" y="${y}" width="96" height="45" rx="6" fill="#0a1721" stroke="#1ba8ca" stroke-width="1.5"/><text x="${x+48}" y="${y+21}" font-size="20" text-anchor="middle" fill="#eef4ff" font-weight="600">${v}</text><text x="${x+48}" y="${y+36}" font-size="12" text-anchor="middle" fill="#77b9d1">${u}</text>`}).join('');
+ return `<svg class="original-art" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid meet" role="img" aria-label="MG3-inspired original instrument display, simulated values">
+ <defs><radialGradient id="mgGlow"><stop stop-color="#073954" stop-opacity=".6"/><stop offset="1" stop-color="#060b10" stop-opacity="0"/></radialGradient><linearGradient id="mgLane" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#31516a" stop-opacity="0"/><stop offset="1" stop-color="#9ed9ff"/></linearGradient></defs>
+ <rect width="800" height="450" fill="#080d12"/><ellipse cx="400" cy="180" rx="220" ry="95" fill="url(#mgGlow)"/>
+ <text x="400" y="56" class="white" font-size="21" text-anchor="middle">${clock}</text>
+ <circle cx="400" cy="96" r="25" fill="#fafafa" stroke="#e43c36" stroke-width="4"/><text x="400" y="104" font-size="22" fill="#16191d" font-weight="700" text-anchor="middle">${lim}</text>
+ <path d="M155 164 L132 295" stroke="url(#mgLane)" stroke-width="4"/><path d="M215 164 L239 295" stroke="url(#mgLane)" stroke-width="4"/>
+ <g transform="translate(159 284)"><path d="M10 12 Q12 2 22 2 H42 Q52 2 54 12 L60 47 Q59 57 49 59 H14 Q4 56 4 47Z" fill="#d9e6f5" stroke="#6f96bd" stroke-width="3"/><path d="M16 13 H49 L46 28 H19Z" fill="#1d2b3d"/><path d="M14 40 Q32 45 51 40" stroke="#41576c" stroke-width="3" fill="none"/><path d="M9 48 H19 M46 48 H56" stroke="#a3dfff" stroke-width="3"/></g>
+ <text x="400" y="240" class="white" font-size="92" font-weight="500" text-anchor="middle">${speed}</text><text x="400" y="266" class="white" font-size="20" text-anchor="middle">km/h</text><text x="400" y="284" fill="#52d59c" font-size="15" font-weight="700" text-anchor="middle">READY</text>
+ <text x="400" y="313" fill="#f0645b" font-size="23" text-anchor="middle">Ⓟ</text>
+ <text x="400" y="341" class="white" font-size="23" text-anchor="middle">⛽ ${range} km</text><text x="337" y="362" class="muted" font-size="12">E</text>${bars}<text x="471" y="362" class="muted" font-size="12">F</text>
+ <text x="645" y="150" class="white" font-size="21" text-anchor="middle">Accumulated Total</text>${stats}
+ <text x="645" y="286" class="muted" font-size="14" text-anchor="middle">Long press OK to reset</text><text x="550" y="329" class="muted" font-size="13">ODO</text><text x="738" y="329" class="white" font-size="15" text-anchor="end">838 km</text>
+ <text x="185" y="416" class="white" font-size="30" font-weight="700" text-anchor="middle">P</text><text x="245" y="414" fill="#ed5a4b" font-size="20">⚠</text><text x="399" y="415" class="cyan" font-size="15" font-weight="700" text-anchor="middle">NORMAL</text><text x="622" y="416" class="white" font-size="23">${simPower} kW</text><text x="728" y="416" fill="#55dc94" font-size="19" font-weight="700">EV</text>
+ </svg>`;
+}
+let viewMode='original';
+function setView(mode){viewMode=mode;document.body.classList.toggle('original-view',mode==='original');$('originalBtn').classList.toggle('primary',mode==='original');$('customBtn').classList.toggle('primary',mode==='custom');$('originalBtn').setAttribute('aria-pressed',String(mode==='original'));$('customBtn').setAttribute('aria-pressed',String(mode==='custom'));if(mode==='original'){selected=null;edit()}render();notice(mode==='original'?'Original-inspired MG3 reference view. Switch to Custom to edit your dashboard.':'Custom editor active. Drag and style modules freely.');}
+$('originalBtn').onclick=()=>setView('original');$('customBtn').onclick=()=>setView('custom');
+function render(){screen.parentElement.querySelector('.page-controls')?.remove();screen.innerHTML='';if(viewMode==='original'){screen.classList.remove('grid');screen.classList.add('preview');screen.innerHTML=originalDashboard();return;}screen.classList.toggle('preview',preview);screen.classList.toggle('grid',showGrid&&!preview);
+const panel=document.createElement('div');panel.className='page-slot';panel.style.cssText=`left:${SLOT.x/COLS*100}%;top:${SLOT.y/ROWS*100}%;width:${SLOT.w/COLS*100}%;height:${SLOT.h/ROWS*100}%`;
+panel.innerHTML=`<span class="page-slot-label">SWITCHABLE PANEL · ${activePage+1}/4</span>`;screen.append(panel);
+const controls=document.createElement('div');controls.className='page-controls';controls.innerHTML=`<button type="button" aria-label="Previous panel view" title="Previous view">▲</button><span>${activePage+1}/4</span><button type="button" aria-label="Next panel view" title="Next view">▼</button>`;
+controls.children[0].onclick=()=>pageChange(-1);controls.children[2].onclick=()=>pageChange(1);screen.parentElement.append(controls);
+for(const m of modules){if(isPage(m)&&m.page!==activePage)continue;const el=document.createElement('div');el.className='module '+m.type+(m.id===selected&&!preview?' selected':'');el.dataset.id=m.id;el.style.left=(m.x/COLS*100)+'%';el.style.top=(m.y/ROWS*100)+'%';el.style.width=(m.w/COLS*100)+'%';el.style.height=(m.h/ROWS*100)+'%';el.style.color=m.fg;el.style.setProperty('--accent',m.fg);el.style.setProperty('--scale',m.scaleColor||'#d7e8f7');el.style.setProperty('--needle',m.needleColor||'#ff6655');el.style.setProperty('--digits',m.digitColor||'#ffffff');el.style.background=m.transparent?'transparent':hexrgba(m.bg,m.opacity/100);el.style.border=m.borderWidth?`${m.borderWidth}px solid ${m.border}`:'none';el.style.borderRadius='6px';el.innerHTML=body(m)+(m.id===selected&&!preview?'<span class="resize" title="Resize"></span>':'');
+configureSvgColors(el.querySelector('svg'),m);const labels={speed:'SPEED',rpm:'RPM',gear:'GEAR',fuel:'FUEL',battery:'HYBRID BATTERY',energy:'ENERGY FLOW',mode:'DRIVE MODE',range:'RANGE',clock:'TIME',trip:'TRIP',lane:'LANE ASSIST',power:'POWER',odometer:'ODO',warnings:'WARNINGS',outside:'OUTSIDE TEMP',assist:'DRIVER ASSIST',navigation:'NAVIGATION',acc:'ADAPTIVE CRUISE',engineTemp:'ENGINE TEMP',evShare:'EV DRIVING SHARE',regen:'REGENERATION',consumption:'FUEL CONSUMPTION'};
+// Keep one consistent, independently configurable label for every module.
+const redundant=new Set(['RANGE','FUEL','FUEL LEVEL','BATTERY','HYBRID BATTERY','BATTERY CHARGE','DRIVE MODE','TIME','POWER','ENERGY BALANCE','POWERTRAIN','ODOMETER','ACCUMULATED TOTAL']);
+el.querySelectorAll('svg text').forEach(n=>{if(redundant.has(n.textContent.trim().toUpperCase()))n.style.display='none'});
+el.querySelectorAll('.caption,.tiny').forEach(n=>{if(redundant.has(n.textContent.trim().toUpperCase()))n.style.display='none'});
+if(m.showLabel!==false){const lab=document.createElement('span');lab.className='module-label '+(m.labelPosition==='bottom'?'bottom':'top');lab.textContent=labels[m.type]||types[m.type].name.toUpperCase();el.append(lab)}el.addEventListener('pointerdown',onPointerDown);screen.append(el)}$('gridBtn').textContent=showGrid?'Hide grid':'Show grid';$('previewBtn').textContent=preview?'Edit layout':'Preview'}
+function configureSvgColors(svg,m){
+ if(!svg)return;
+ for(const [key,val] of Object.entries({'--fill':m.fillColor||'#20374b','--line':m.lineColor||'#89a9c4','--charge':m.chargeColor||'#27e39a','--discharge':m.dischargeColor||'#f36a66','--sign-fill':m.signFill||'#ffffff','--sign-border':m.signBorder||'#e62d3b','--sign-digits':m.signDigits||'#141414'}))svg.style.setProperty(key,val);
+ for(const node of svg.querySelectorAll('*'))for(const attr of ['fill','stroke']){const original=node.getAttribute(attr);if(!original)continue;const chosen=m.paintOverrides?.[attr+':'+original];if(chosen)node.setAttribute(attr,chosen)}
+}
+function paintFields(m){
+ const root=$('paintEditor');root.replaceChildren();const tmp=document.createElement('div');tmp.innerHTML=body(m);
+ const svg=tmp.querySelector('svg');if(!svg){root.textContent='This design has no SVG paint layers.';return}
+ const entries=new Map();for(const node of svg.querySelectorAll('*'))for(const attr of ['fill','stroke']){
+  const raw=node.getAttribute(attr);if(!raw||raw==='none'||raw==='transparent'||raw.startsWith('url('))continue;
+  const key=attr+':'+raw;entries.set(key,(entries.get(key)||0)+1);
+ }
+ const defaults={'var(--accent)':m.fg,'var(--digits)':m.digitColor,'var(--scale)':m.scaleColor,'var(--needle)':m.needleColor,'var(--fill)':m.fillColor,'var(--line)':m.lineColor,'var(--charge)':m.chargeColor,'var(--discharge)':m.dischargeColor,'var(--sign-fill)':m.signFill||'#ffffff','var(--sign-border)':m.signBorder||'#e62d3b','var(--sign-digits)':m.signDigits||'#141414'};
+ let n=0;for(const [key,count] of entries){const [attr,...pieces]=key.split(':'),raw=pieces.join(':');const base=/^#[0-9a-f]{6}$/i.test(raw)?raw:/^#[0-9a-f]{3}$/i.test(raw)?'#'+raw.slice(1).split('').map(x=>x+x).join(''):defaults[raw];if(!base)continue;
+  const field=document.createElement('label');field.className='paint-row';const name=document.createElement('span');name.textContent=`${attr==='fill'?'Fill':'Stroke'} ${raw.startsWith('var(')?raw.slice(6,-1):raw} · ${count}`;const input=document.createElement('input');input.type='color';input.value=m.paintOverrides?.[key]||base;input.title='Set '+name.textContent;input.addEventListener('input',e=>{const mm=modules.find(x=>x.id===selected);if(!mm)return;checkpoint();mm.paintOverrides??={};mm.paintOverrides[key]=e.target.value;render()});field.append(name,input);root.append(field);n++;
+ }if(!n)root.textContent='No editable SVG colors.';
+}
+function hexrgba(h,a){const n=parseInt(h.slice(1),16);return `rgba(${n>>16&255},${n>>8&255},${n&255},${a})`}
+function notice(t){$('status').textContent=t}
+function onPointerDown(e){if(preview)return;const el=e.currentTarget,id=+el.dataset.id,m=modules.find(x=>x.id===id);if(!m)return;selected=id;const resize=!!e.target.closest('.resize');drag={id,resize,pointer:e.pointerId,sx:e.clientX,sy:e.clientY,orig:{...m},before:snapshot(),el};el.setPointerCapture(e.pointerId);el.addEventListener('pointermove',onPointerMove);el.addEventListener('pointerup',onPointerUp);el.addEventListener('pointercancel',onPointerUp);renderSelectionOnly();edit();e.preventDefault()}
+function renderSelectionOnly(){screen.querySelectorAll('.module').forEach(el=>{const active=+el.dataset.id===selected;el.classList.toggle('selected',active);el.querySelector('.resize')?.remove();if(active&&!preview){const h=document.createElement('span');h.className='resize';h.title='Resize';el.append(h)}})}
+function onPointerMove(e){if(!drag||e.pointerId!==drag.pointer)return;const m=modules.find(x=>x.id===drag.id);if(!m)return;const rect=screen.getBoundingClientRect(),dx=Math.round((e.clientX-drag.sx)/(rect.width/COLS)),dy=Math.round((e.clientY-drag.sy)/(rect.height/ROWS));const candidate={...drag.orig};if(drag.resize){candidate.w=Math.max(types[m.type].min[0],drag.orig.w+dx);candidate.h=Math.max(types[m.type].min[1],drag.orig.h+dy)}else{candidate.x=drag.orig.x+dx;candidate.y=drag.orig.y+dy}if(!drag.resize){
+  // Crossing the panel boundary assigns the module to the active page; leaving it makes it static.
+  // The entire rectangle must fit inside or outside the reserved area.
+  if(candidate.x>=SLOT.x&&candidate.y>=SLOT.y&&candidate.x+candidate.w<=SLOT.x+SLOT.w&&candidate.y+candidate.h<=SLOT.y+SLOT.h)candidate.page=activePage;
+  else if(!inSlot(candidate))delete candidate.page;
+ }
+ if(valid(candidate,m.id)){if(isPage(candidate))m.page=candidate.page;else delete m.page;Object.assign(m,{x:candidate.x,y:candidate.y,w:candidate.w,h:candidate.h});drag.el.style.left=(m.x/COLS*100)+'%';drag.el.style.top=(m.y/ROWS*100)+'%';drag.el.style.width=(m.w/COLS*100)+'%';drag.el.style.height=(m.h/ROWS*100)+'%';notice('Position '+(m.x+1)+','+(m.y+1)+' · size '+m.w+'×'+m.h)}else notice('No room: modules cannot overlap or exceed the display.');e.preventDefault()}
+function onPointerUp(e){if(!drag||e.pointerId!==drag.pointer)return;drag.el.removeEventListener('pointermove',onPointerMove);drag.el.removeEventListener('pointerup',onPointerUp);drag.el.removeEventListener('pointercancel',onPointerUp);if(drag.before!==snapshot()){history.push(drag.before);if(history.length>100)history.shift();future=[];historyButtons()}drag=null;render();edit()}
+function edit(){const m=modules.find(x=>x.id===selected);$('editFields').classList.toggle('hidden',!m);$('selectedInfo').textContent=m?types[m.type].name+' · '+m.w+' × '+m.h+' cells':'Click a module on the display to edit it.';if(!m)return;$('style').innerHTML=types[m.type].styles.map(s=>`<option>${s}</option>`).join('');$('style').value=m.style;$('styleGalleryWrap').classList.toggle('hidden',!['speed','rpm','fuel','battery','energy','gear','mode','range','clock','outside','engineTemp','regen','consumption','speedLimit','warnings','trip','lane','power','odometer'].includes(m.type));if(['speed','rpm','fuel','battery','energy','gear','mode','range','clock','outside','engineTemp','regen','consumption','speedLimit','warnings','trip','lane','power','odometer'].includes(m.type))renderStyleGallery(m);$('speedColors').classList.toggle('hidden',!['speed','rpm','fuel','battery','energy','gear','mode','range','clock','outside','engineTemp','regen','consumption','speedLimit','warnings','trip','lane','power','odometer'].includes(m.type));$('styleGalleryWrap').querySelector('summary').textContent='Browse all '+types[m.type].styles.length+' '+types[m.type].name.toLowerCase()+' designs';$('signExtras').classList.toggle('hidden',m.type!=='speedLimit');for(const k of ['signFill','signBorder','signDigits'])$(k).value=m[k]||({signFill:'#ffffff',signBorder:'#e62d3b',signDigits:'#141414'}[k]);$('moduleExtras').classList.toggle('hidden',!['gear','lane'].includes(m.type));$('gearExtras').classList.toggle('hidden',m.type!=='gear');$('laneExtras').classList.add('hidden');$('gearFont').value=m.gearFont||'Standard';$('gearOutline').checked=!!m.gearOutline;for(const g of 'PRND')$('gear'+g).value=m.gearColors?.[g]||m.digitColor||'#ffffff';$('laneSymbol').value=m.laneSymbol||'Graphic Car';for(const k of ['fillColor','lineColor','chargeColor','dischargeColor'])$(k).value=m[k]||({fillColor:'#20374b',lineColor:'#89a9c4',chargeColor:'#27e39a',dischargeColor:'#f36a66'}[k]);paintFields(m);$('scaleColor').value=m.scaleColor||'#d7e8f7';$('needleColor').value=m.needleColor||'#ff6655';$('digitColor').value=m.digitColor||'#ffffff';$('showLabel').checked=m.showLabel!==false;$('labelPosition').value=m.labelPosition==='bottom'?'bottom':'top';$('fg').value=m.fg;$('bg').value=m.bg;$('transparent').checked=m.transparent;$('opacity').value=m.opacity;$('opacityLabel').textContent=m.opacity+'%';$('border').value=m.border;$('borderWidth').value=m.borderWidth;$('deleteBtn').disabled=types[m.type].mandatory;$('mandatoryNote').textContent=types[m.type].mandatory?'Core module: cannot be removed. Placement and size are editable.':''}
+function renderStyleGallery(m){const gallery=$('styleGallery');gallery.innerHTML='';for(const style of types[m.type].styles){const tile=document.createElement('button');tile.type='button';tile.className='style-tile'+(m.style===style?' active':'');tile.innerHTML=(style==='MG3 Factory'?mgFactoryArt({...m,style}):m.type==='rpm'?rpmSVG(style):m.type==='speed'?speedSVG(style):m.type==='speedLimit'?speedLimitArt({...m,style}):['warnings','trip','lane','power','odometer'].includes(m.type)?additionalArt({...m,style}):['outside','engineTemp','regen','consumption','speedLimit','warnings','trip','lane','power','odometer'].includes(m.type)?vehicleModuleArt({...m,style}):['gear','mode','range','clock'].includes(m.type)?compactArt({...m,style,...(m.type==='gear'?{w:4,h:3}:{})}):hybridSVG(m.type,style))+'<span>'+style+'</span>';const svg=tile.querySelector('svg');svg.style.setProperty('--accent',m.fg);svg.style.setProperty('--scale',m.scaleColor||'#d7e8f7');svg.style.setProperty('--needle',m.needleColor||'#ff6655');svg.style.setProperty('--digits',m.digitColor||'#ffffff');configureSvgColors(svg,{...m,style});tile.addEventListener('click',()=>update('style',style));gallery.append(tile)}}
+function update(prop,value){const m=modules.find(x=>x.id===selected);if(!m)return;checkpoint();m[prop]=value;render();edit()}
+for(const id of ['style','fg','bg','border','scaleColor','needleColor','digitColor','fillColor','lineColor','chargeColor','dischargeColor','signFill','signBorder','signDigits'])$(id).addEventListener('input',e=>update(id==='style'?'style':id,e.target.value));$('gearFont').addEventListener('change',e=>update('gearFont',e.target.value));$('gearOutline').addEventListener('change',e=>update('gearOutline',e.target.checked));$('laneSymbol').addEventListener('change',e=>update('laneSymbol',e.target.value));for(const g of 'PRND')$('gear'+g).addEventListener('input',e=>{const m=modules.find(x=>x.id===selected);if(!m)return;checkpoint();m.gearColors={...m.gearColors,[g]:e.target.value};render();edit()});$('showLabel').addEventListener('change',e=>update('showLabel',e.target.checked));$('labelPosition').addEventListener('change',e=>update('labelPosition',e.target.value));$('transparent').addEventListener('change',e=>update('transparent',e.target.checked));$('opacity').addEventListener('input',e=>update('opacity',+e.target.value));$('borderWidth').addEventListener('change',e=>update('borderWidth',+e.target.value));
+function resizeSelected(delta){const m=modules.find(x=>x.id===selected);if(!m)return;const n={...m,w:m.w+delta,h:m.h+delta};if(valid(n,m.id)){checkpoint();m.w=n.w;m.h=n.h;render();edit();notice('Module resized.')}else notice('Cannot resize: minimum size, screen edge or collision.')}
+$('shrinkBtn').onclick=()=>resizeSelected(-1);$('growBtn').onclick=()=>resizeSelected(1);$('deleteBtn').onclick=()=>{const m=modules.find(x=>x.id===selected);if(!m||types[m.type].mandatory)return;checkpoint();modules=modules.filter(x=>x.id!==selected);selected=null;render();edit();notice('Module removed.')};$('deselectBtn').onclick=()=>{selected=null;render();edit()};
+let catalogSelected='battery';
+function renderCatalog(){const q=$('catalogSearch').value.trim().toLowerCase();const list=$('catalogList');list.replaceChildren();let found=0;for(const [key,item] of Object.entries(types)){if(item.mandatory||!item.name.toLowerCase().includes(q))continue;found++;const btn=document.createElement('button');btn.type='button';btn.className='catalog-item'+(catalogSelected===key?' active':'');btn.setAttribute('role','option');btn.setAttribute('aria-selected',String(catalogSelected===key));btn.textContent=item.name;btn.onclick=()=>{catalogSelected=key;renderCatalog()};list.append(btn)}if(!found){const empty=document.createElement('div');empty.className='catalog-empty';empty.textContent='No matching modules';list.append(empty)}$('catalogChoice').textContent='Selected: '+types[catalogSelected].name;}
+$('catalogSearch').addEventListener('input',renderCatalog);renderCatalog();
+$('addBtn').onclick=()=>{
+ const type=catalogSelected,t=types[type],toPanel=false;
+ const bounds=toPanel?{x:SLOT.x,y:SLOT.y,w:SLOT.w,h:SLOT.h}:{x:0,y:0,w:COLS,h:ROWS};
+ // Prefer the normal module size; only shrink when the user chose the compact panel.
+ const sizes=[];const addSize=(w,h)=>{if(w>=t.min[0]&&h>=t.min[1]&&w<=bounds.w&&h<=bounds.h&&!sizes.some(z=>z[0]===w&&z[1]===h))sizes.push([w,h])};
+ addSize(t.size[0],t.size[1]);
+ if(toPanel){for(let w=Math.min(t.size[0],bounds.w);w>=t.min[0];w--)for(let h=Math.min(t.size[1],bounds.h);h>=t.min[1];h--)addSize(w,h)}
+ for(const [w,h] of sizes)for(let y=bounds.y;y<=bounds.y+bounds.h-h;y++)for(let x=bounds.x;x<=bounds.x+bounds.w-w;x++){
+  const m=make(type,x,y,w,h);if(toPanel)m.page=activePage;
+  if(valid(m)){checkpoint();modules.push(m);selected=m.id;render();edit();notice('Added '+t.name+(toPanel?' to panel view '+(activePage+1):' outside the panel')+' · '+w+'×'+h+' cells.');return}
+ }
+ notice(toPanel?'No free space on panel view '+(activePage+1)+'. Switch pages, move/resize an existing module or remove one.':'No free space outside the switchable panel.');
+};
+$('gridBtn').onclick=()=>{showGrid=!showGrid;render()};$('previewBtn').onclick=()=>{preview=!preview;render();notice(preview?'Preview mode: editing outlines hidden.':'Editing mode enabled.')};$('resetBtn').onclick=()=>{if(confirm('Reset all modules to the starting layout?')){checkpoint();init();notice('MG3 factory-inspired custom layout restored.')}};
+function data(){return {version:3,grid:[COLS,ROWS],activePage,modules:modules.map(m=>({...m}))}}function restore(v){if([2,3].includes(v?.version)&&Array.isArray(v.modules)){for(const m of v.modules){if(m.type==='speed'&&m.style==='Digital')m.style='Digital · Minimal';if(m.type==='speed'&&m.style==='Analog')m.style='Analog · Classic';if(m.type==='lane'&&m.style==='Lane Assist')m.style=m.laneSymbol||'Graphic Car'}}if(!v||![2,3].includes(v.version)||!Array.isArray(v.modules)||v.grid?.[0]!==COLS||v.grid?.[1]!==ROWS)throw Error('Unsupported layout format');const incoming=v.modules.filter(m=>types[m.type]).map(m=>({...m,...(v.version===2&&m.type==='trip'&&m.x===8&&m.y===2?{x:8,y:1,h:5,page:0}:{}),showLabel:m.showLabel!==false,labelPosition:m.labelPosition==='bottom'?'bottom':'top',style:types[m.type].styles.includes(m.style)?m.style:types[m.type].styles[0]}));if(incoming.length>60||incoming.some(m=>!types[m.type]||!Number.isInteger(m.id)||!Number.isInteger(m.x)||!Number.isInteger(m.y)||!Number.isInteger(m.w)||!Number.isInteger(m.h)||!types[m.type].styles.includes(m.style)||m.page!==undefined&&(!Number.isInteger(m.page)||m.page<0||m.page>3)||!/^#[0-9a-f]{6}$/i.test(m.fg)||!/^#[0-9a-f]{6}$/i.test(m.bg)||!/^#[0-9a-f]{6}$/i.test(m.border)||['scaleColor','needleColor','digitColor','fillColor','lineColor','chargeColor','dischargeColor'].some(k=>m[k]!==undefined&&!/^#[0-9a-f]{6}$/i.test(m[k]))||['signFill','signBorder','signDigits'].some(k=>m[k]!==undefined&&!/^#[0-9a-f]{6}$/i.test(m[k]))||m.gearFont!==undefined&&!['Standard','Sport','Oldtimer','Modern','Futuristic'].includes(m.gearFont)||m.gearOutline!==undefined&&typeof m.gearOutline!=='boolean'||m.laneSymbol!==undefined&&!['Arrow','Abstract Car','Graphic Car','Steering Wheel'].includes(m.laneSymbol)||m.gearColors!==undefined&&(typeof m.gearColors!=='object'||m.gearColors===null||Object.entries(m.gearColors).some(([k,v])=>!['P','R','N','D'].includes(k)||!/^#[0-9a-f]{6}$/i.test(v)))||m.paintOverrides!==undefined&&(typeof m.paintOverrides!=='object'||m.paintOverrides===null||Object.keys(m.paintOverrides).length>100||Object.entries(m.paintOverrides).some(([k,v])=>k.length>150||!/^#[0-9a-f]{6}$/i.test(v)))||typeof m.transparent!=='boolean'||!Number.isFinite(m.opacity)||m.opacity<0||m.opacity>100||!Number.isInteger(m.borderWidth)||m.borderWidth<0||m.borderWidth>4||typeof m.showLabel!=='boolean'||!['top','bottom'].includes(m.labelPosition)))throw Error('Invalid module data');const ids=new Set(incoming.map(m=>m.id));if(ids.size!==incoming.length)throw Error('Duplicate IDs');for(const [k,t] of Object.entries(types))if(t.mandatory&&!incoming.some(m=>m.type===k))throw Error('Missing required module: '+t.name);for(const m of incoming){if(m.x<0||m.y<0||m.w<types[m.type].min[0]||m.h<types[m.type].min[1]||m.x+m.w>COLS||m.y+m.h>ROWS||(isPage(m)?(m.x<SLOT.x||m.y<SLOT.y||m.x+m.w>SLOT.x+SLOT.w||m.y+m.h>SLOT.y+SLOT.h):inSlot(m))||incoming.some(n=>n!==m&&pageMatches(m,n)&&overlap(m,n)))throw Error('Invalid placement or collision')}checkpoint();modules=incoming;activePage=v.activePage??0;nextId=Math.max(0,...modules.map(m=>m.id))+1;selected=null;preview=false;render();edit()}
+$('saveBtn').onclick=()=>{localStorage.setItem('mg3-studio-step2',JSON.stringify(data()));notice('Layout saved in this browser.')};$('loadBtn').onclick=()=>{try{const v=localStorage.getItem('mg3-studio-step2');if(!v)throw Error('No saved layout found');restore(JSON.parse(v));notice('Saved layout loaded.')}catch(e){notice(e.message)}};$('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(data(),null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='mg3-dashboard-layout.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);notice('Layout exported.')};$('importBtn').onclick=()=>$('fileInput').click();$('fileInput').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{if(f.size>100000)throw Error('File too large');restore(JSON.parse(await f.text()));notice('Layout imported.')}catch(err){notice('Import failed: '+err.message)}e.target.value=''};
+for(const [id,key,out,unit] of [['simFuel','fuel','fuelVal','%'],['simBattery','battery','batteryVal','%'],['simPower','power','powerVal',' kW']])$(id).addEventListener('input',e=>{const v=+e.target.value;if(key==='fuel')simFuel=v;else if(key==='battery')simBattery=v;else simPower=v;$(out).textContent=v+unit;render()});
+$('simGear').addEventListener('change',e=>{simGear=e.target.value;render()});$('simSpeed').addEventListener('input',e=>{simSpeed=+e.target.value;$('speedVal').textContent=simSpeed+' km/h';render()});$('simRPM').addEventListener('input',e=>{simRPM=+e.target.value;$('rpmVal').textContent=(engineOn?simRPM:0)+' RPM';render()});$('engineOn').addEventListener('change',e=>{engineOn=e.target.checked;$('rpmVal').textContent=(engineOn?simRPM:0)+' RPM';$('simRPM').disabled=!engineOn;render()});
+for(const [id,key,out,unit] of [['simOutside','outside','outsideVal','°C'],['simLimit','limit','limitVal',' km/h']])$(id).addEventListener('input',e=>{const v=+e.target.value;if(key==='outside')simOutside=v;else if(key==='nav')simNav=v;else if(key==='gap')simGap=v;else if(key==='limit')simLimit=v;else simCruise=v;$(out).textContent=v+unit;render()});
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName)){if(e.key.toLowerCase()==='z'){e.preventDefault();e.shiftKey?redo():undo();return}if(e.key.toLowerCase()==='y'){e.preventDefault();redo();return}}if(e.key==='Escape'&&presentation){togglePresentation();return}if(e.key==='Escape'){selected=null;render();edit();return}if(!selected||preview||['INPUT','SELECT','BUTTON'].includes(document.activeElement?.tagName))return;const dirs={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]};if(!dirs[e.key])return;e.preventDefault();const m=modules.find(x=>x.id===selected),[dx,dy]=dirs[e.key],n={...m,x:m.x+dx,y:m.y+dy};if(valid(n,m.id)){checkpoint();m.x=n.x;m.y=n.y;render();edit()}else notice('Cannot move there.')});$('undoBtn').onclick=undo;$('redoBtn').onclick=redo;$('autoArrangeBtn').onclick=autoArrange;
+$('copyStyleBtn').onclick=()=>{const m=modules.find(x=>x.id===selected);if(!m)return;styleClipboard=Object.fromEntries(styleKeys.filter(k=>k!=='style').map(k=>[k,m[k]]));notice('Visual style copied (design type remains module-specific).')};
+$('pasteStyleBtn').onclick=()=>{const m=modules.find(x=>x.id===selected);if(!m||!styleClipboard){notice('Select a module and copy its style first.');return}checkpoint();Object.assign(m,styleClipboard);render();edit();notice('Visual style applied.')};
+function togglePresentation(){presentation=!presentation;document.body.classList.toggle('presentation-active',presentation);preview=presentation;if(!presentation)preview=false;render();$('presentationBtn').textContent=presentation?'Exit presentation':'Presentation';notice(presentation?'Presentation mode: press Esc to exit.':'Editor mode.')}
+$('presentationBtn').onclick=togglePresentation;
+init();historyButtons();setView('original');
+</script></body></html>
